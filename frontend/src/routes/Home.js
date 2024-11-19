@@ -8,6 +8,7 @@ import HeroImg from "../assets/hero.jpeg";
 function Home() {
   return (
     <>
+      <ApplyBar  />{/* 1119xin-add */}
       <Navbar />
       <Hero
         cName="hero"
