@@ -5,10 +5,13 @@ import Delivery from "../components/Delivery";
 import City from "../components/City";
 import Footer from "../components/Footer";
 import HeroImg from "../assets/hero.jpeg";
+import ApplyBar from "../components/ApplyBar";//1119 xin
+import StoreJoin from "../components/StoreJoin";//1119 xin
+
 function Home() {
   return (
     <>
-      <ApplyBar  />{/* 1119xin-add */}
+      <ApplyBar />
       <Navbar />
       <Hero
         cName="hero"
@@ -20,6 +23,7 @@ function Home() {
         url="/"
         btnClass="show"
       />
+      <StoreJoin />
       <Delivery />
       <City />
       <Footer />
