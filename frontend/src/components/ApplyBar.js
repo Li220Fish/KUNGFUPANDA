@@ -1,5 +1,5 @@
 /*1119 made by xin*/
-
+3567
 import React from 'react';
 import './ApplyBarStyles.css';
 import riderIcon from '../assets/ic-rider-icon.svg'; // 导入图标
