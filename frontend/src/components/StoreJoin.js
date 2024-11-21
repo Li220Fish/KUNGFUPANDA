@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react';/*xin*/
 import './StoreJoinStyles.css';
 import vendorImage from '../assets/trabajar-en-el-extranjero-en-manipulacion-de-alimentos.jpg';
 
