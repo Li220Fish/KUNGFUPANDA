@@ -1,14 +1,21 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom'; // 引入 useNavigate
 import './ApplyBarStyles.css';
-import riderIcon from '../assets/ic-rider-icon.svg'; // 导入图标
+import riderIcon from '../assets/ic-rider-icon.svg';
 
 function ApplyBar() {
+  const navigate = useNavigate(); // 使用 useNavigate
+
   const closeTopBar = () => {
     const topBar = document.getElementById('top-bar');
     if (topBar) {
       topBar.style.display = 'none';
-      document.body.style.paddingTop = '0'; // 恢复页面正常布局
+      document.body.style.paddingTop = '0';
     }
+  };
+
+  const handleApplyClick = () => {
+    navigate('/apply'); // 導航到 ApplyPage
   };
 
   return (
@@ -16,7 +23,9 @@ function ApplyBar() {
       <div className="top-bar-content">
         <img src={riderIcon} alt="Rider Icon" />
         <span>歡迎加入我們的外送團隊</span>
-        <button className="action-btn">馬上應徵</button>
+        <button className="action-btn" onClick={handleApplyClick}>
+          馬上應徵
+        </button>
       </div>
       <button className="close-btn" onClick={closeTopBar}>
         <svg
