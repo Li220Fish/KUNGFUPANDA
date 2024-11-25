@@ -2,6 +2,13 @@ import React from 'react';
 import './ApplyPageStyles.css';
 import foodpandaLogo from '../assets/foodpanda_logo.jfif';
 import foodpandaad from '../assets/foodpanda_ad.jpg_31-10-2024-07_09_58'
+import foodpandaFeature from '../assets/motrobikeman.jpg_27-11-2023-08_03_23';
+import foodpandaFeature2 from '../assets/motowomen.jpg_27-11-2023-08_03_23';
+import cash from '../assets/cash.svg_21-06-2021-09_52_43';
+import firstaidkit from '../assets/firstaidkit.svg_21-06-2021-09_52_43';
+import balloon from '../assets/balloon.svg_21-06-2021-09_52_43';
+
+
 const ApplyPage = () => {
   const handleButtonClick = () => {
     // 在這裡添加按鈕點擊的功能
@@ -57,11 +64,65 @@ const ApplyPage = () => {
               </select>
             </div>
             <button type="submit" className="submit-button">
-              提交
+              <p>提交</p>
             </button>
           </div>
         </div>
       </div>
+      <div className="new-section1">
+        <div className="section-text1">
+          <h2>探索城市</h2>
+          <p>探索城市的每個街道巷弄，享受自由的旅</p>
+          <p>程。</p>
+        </div>
+        <img src={foodpandaFeature} alt="foodpanda Feature" className="section-image1" />
+      
+
+        <div className="section-text2">
+          <h2>荷包的深度自己掌握</h2>
+          <p>做越多賺越多，這筆額外收入將直接進您的</p>
+          <p>口袋！</p>
+        </div>
+        <img src={foodpandaFeature2} alt="foodpanda Feature2" className="section-image2" />
+      
+      </div>
+
+      <div className="othergood">
+          <h2>其他 好康:</h2>
+      
+
+        <div className="gooditems">
+          <div className="cash">
+            <div className="cash-text">
+              <img src="https://production-ap-dodo-files.s3.ap-southeast-1.amazonaws.com/d4a26b3b-8024-440e-8706-0b4b2ce4eabe_Money.svg_21-06-2021-09%3A52%3A43" alt="cash" />
+              <p>享有精選多元夥伴特約，包含購車、電信、餐飲優惠折扣</p>
+
+            </div>
+            
+          </div>
+
+          <div className="firstaidkit">
+            <div className="firstaidkit-text">
+              <img src="https://production-ap-dodo-files.s3.ap-southeast-1.amazonaws.com/7011f70f-185f-4812-864b-38a1dde8f3cd_Insurance.svg_21-06-2021-09%3A52%3A43" alt="firstaidkit" />
+              <p>享有團險保障(實支實付傷害醫療、意外住院日額、意外事故身故/失能)</p>
+            </div>
+          </div>
+
+          <div className="balloon">
+            <div className="balloon-text">
+              <img src="https://production-ap-dodo-files.s3.ap-southeast-1.amazonaws.com/2d1738f9-be71-4145-a9c9-ddfe9bd12cb1_Events.svg_21-06-2021-09%3A52%3A43" alt="balloon" />
+              <p>企業CSR活動和外送夥伴專屬活動</p>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+
     </div>
   );
 };
