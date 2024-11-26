@@ -33,7 +33,9 @@
   cursor: pointer;
   margin-left:40rem; /* 增加左外邊距 */
 }
-
+.apply-button:hover {
+  background-color: hsla(157, 32%, 77%, 0.411);
+}
 .new-section {
   margin: 5rem auto 3rem; /* 上下邊距，左右自動以置中 */
   display: flex;
@@ -128,7 +130,7 @@
   text-align: center;
   cursor: pointer;
   margin-top: 3rem; /* 增加上外邊距 */
-  width: 200px; /* 設置按鈕的寬度 */
+  width: 280px; /* 設置按鈕的寬度 */
   height: 50px; /* 設置按鈕的高度 */
 }
 
@@ -238,13 +240,189 @@
 }
 
 .cash img, .firstaidkit img, .balloon img {
-  max-width: 25%; /* 圖片最大寬度 */
+  max-width:30%; /* 圖片最大寬度 */
   height: auto; /* 高度自動 */
-  margin-left: 80px; /* 增加文字與圖片之間的間距 */
-  margin-bottom: 15px; /* 圖片與文字之間的間距 */
+  margin-bottom: -10px ;
+  margin-left: 90px; /* 增加文字與圖片之間的間距 */
 }
 
 .cash-text p, .firstaidkit-text p, .balloon-text p {
-  font-size: 1.3em; /* 文字字體大小 */
-  font-weight: 300;
+  font-size: 1.4em; /* 文字字體大小 */
+  font-weight:300;
 }
+
+
+
+.applyfoot {
+  background-color: #ff2b85; /* 背景顏色 */
+  padding: 20px 80px; /* 調整內邊距，縮小背景 */
+  padding-right: 100px; /* 調整內邊距，縮小背景 */
+  padding-bottom: 50px; /* 調整內邊距，縮小背景 */
+
+  border-radius: 8px; /* 圓角邊框 */
+  margin-top:9rem; /* 調整上外邊距 */
+  text-align: left; /* 文字置中 */
+  max-width:1000px; /* 設置最大寬度 */
+  max-height:300px; /* 設置最大寬度 */
+  width: 900px;
+
+  margin-left: auto; /* 左側自動外邊距，讓內容居中 */
+  margin-right: auto; /* 右側自動外邊距，讓內容居中 */
+}
+
+.applyfoot h2 {
+  font-size: 1.7rem; /* 標題字體大小 */
+  font-weight: 500; /* 加粗 */
+  margin-bottom: 1rem; /* 下外邊距 */
+  color: #ffffff; /* 標題顏色 */
+}
+
+.applyfoot ul {
+  list-style-type: disc; /* 項目符號 */
+  padding-left: 20px; /* 左側內邊距 */
+  padding-right: 20px; /* 左側內邊距 */
+
+  color: #ffffff; /* 標題顏色 */
+  margin-top: -20px; /* 上外邊距，向上移動列表 */
+
+}
+
+.applyfoot li {
+  margin: -0.8rem 0; /* 上下外邊距 */
+  font-size: 1.1rem; /* 列表字體大小 */
+}
+
+
+
+.deliveryparners {
+  padding: 40px; /* 內邊距 */
+  border-radius: 10px; /* 圓角邊框 */
+  max-width: 900px; /* 最大寬度 */
+  margin: 0 auto; /* 置中 */
+  text-align: center; /* 文字置中 */
+}
+
+.deliveryparners h2 {
+  font-size: 1.6rem; /* 標題字體大小 */
+  margin-bottom: 20px; /* 下外邊距 */
+  font-weight:400;
+
+}
+
+.parners {
+  display: flex; /* 使用彈性布局 */
+  justify-content: space-around; /* 夥伴之間的間距 */
+  flex-wrap: wrap; /* 允許換行 */
+}
+
+.mrslin, .mrlin {
+  border-radius: 8px; /* 圓角邊框 */
+  margin: 10px; /* 外邊距 */
+  padding: 10px; /* 內邊距 */
+  width: calc(30% - 0px); /* 設置寬度並考慮外邊距 */
+  text-align: left; /* 文字靠左 */
+}
+
+.mrslin-text, .mrlin-text {
+  
+  text-align: center; /* 文字置中 */
+}
+
+.mrslinpic, .mrlinpic {
+  width: 30%; /* 圖片寬度100% */
+  height: auto; /* 自動高度 */
+  border-radius: 8px; /* 圓角邊框 */
+  margin-bottom: 15px; /* 下外邊距 */
+  
+}
+
+.mrslin h2, .mrlin h2 {
+  font-size: 1.5rem; /* 標題字體大小 */
+  margin-bottom: 10px; /* 下外邊距 */
+  font-weight:500;
+  margin-top: -15px; /* 下外邊距 */
+
+
+}
+
+.mrslin p, .mrlin p {
+  font-size: 1.1rem; /* 文字字體大小 */
+  line-height: 2 ;/* 行高 */
+  text-align: left; /* 文字置中 */
+  width: 110%; /* 設置段落寬度為100% */
+  margin: 0; /* 去除默認外邊距 */
+  
+}
+
+.footpng {
+  padding: 20px; /* 內邊距 */
+  text-align: center; /* 文字置中 */
+  margin-top: 40px; /* 上外邊距 */
+}
+
+.footpic {
+  width: 100%; /* 圖片寬度100% */
+  max-width: 950px; /* 最大寬度 */
+  height: auto; /* 自動高度 */
+  margin-bottom: 15px; /* 下外邊距 */
+}
+
+.footpng h2 {
+  font-size: 1.2rem; /* 標題字體大小 */
+  margin-top: 1px; /* 上外邊距 */
+  font-weight: 400; /* 字體粗細 */
+}
+
+
+.footerpng {
+  background-color: #ff2b85; /* 背景顏色 */
+
+  display: flex; /* 使用彈性盒子布局 */
+  padding: 20px; /* 內邊距 */
+  min-height: 100%; /* 最小高度，根據需要調整 */
+  height: 100%; /* 設置寬度為90% */
+  margin-left: 120px; /* 上外邊距 */
+  margin-top: 60px; /* 上外邊距 */
+
+
+}
+
+.footerleft {
+  flex: 1; /* 左側區域佔據剩餘空間 */
+  display: flex; /* 使圖片居中 */
+  justify-content: center; /* 水平置中 */
+  align-items: center; /* 垂直置中 */
+  margin-right: 600px; /* 上外邊距 */
+  margin-bottom: 80px; /* 上外邊距 */
+
+}
+
+.footerpic {
+  width: 100%; /* 圖片寬度100% */
+  max-width: 30px; /* 最大寬度，縮小至300px */
+  height: auto; /* 自動高度 */
+  margin-bottom: 15px; /* 下外邊距 */
+}
+
+.footerright {
+  flex: 2; /* 右側區域佔據更多空間 */
+  text-align: left; /* 文字左對齊 */
+  padding-left: 20px; /* 左側內邊距 */
+  
+}
+
+.footerright h2 {
+  font-size: 1.2rem; /* 標題字體大小 */
+  color: #ffffff; /* 標題顏色 */
+  margin-top: 0; /* 上外邊距 */
+  font-weight: 400; /* 字體粗細 */
+  line-height: 2;
+}
+
+.footerright p {
+  font-size: 1rem; /* 段落字體大小 */
+  color: #ffffff; /* 段落顏色 */
+  margin: 5px 0; /* 上下外邊距 */
+  line-height: 2;
+}
+
