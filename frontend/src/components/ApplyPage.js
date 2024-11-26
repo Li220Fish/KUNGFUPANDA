@@ -175,8 +175,8 @@ const ApplyPage = () => {
         <div className="footerright">
           <h2>了解更多</h2>
           <p>開通懶人包</p>
-          <p1>申請開通助手 官方</p1>
-          <p1>LINE</p1>
+          <p>申請開通助手 官方</p>
+          <p>LINE</p>
         </div>
 
       </div>
