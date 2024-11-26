@@ -12,14 +12,14 @@
   justify-content: center;
   height: 0px;
   margin-top: -30px; /* 將整個行向上移動 30 像素 */
-  margin-left: 60px;
+  margin-left: 80px;
 
 }
 
 .logo {
   width: 120px;
   height: 30px;
-  margin-right: 10px;
+  margin-right: 50px;
 }
 
 .apply-button {
@@ -37,11 +37,13 @@
 .new-section {
   margin: 5rem auto 3rem; /* 上下邊距，左右自動以置中 */
   display: flex;
+  margin-left:300px;
   flex-direction: column;
   align-items: center; /* 置中對齊內容 */
   width: 100%;
-  max-width: 800px; /* 設定最大寬度 */
+  max-width: 870px; /* 設定最大寬度 */
   justify-content: flex-start; /* 左對齊 */
+  
 }
 
 .section-title {
@@ -50,7 +52,7 @@
   margin-bottom: 5rem; /* 下 */
   text-align: left;
   padding-right: 500px; /* 增加左側內邊距 */
-
+  margin-right: 60px;
 }
 
 .section-content {
@@ -120,13 +122,14 @@
 .submit-button {
   background-color: #ffffff;
   color: #ff2b85;
-  padding: 0.5rem 8.2rem; /* 上下 左右 */
   border: none;
   border-radius: 4px;
-  font-size: 0.6rem;
+  font-size: 1rem;
   text-align: center;
   cursor: pointer;
   margin-top: 3rem; /* 增加上外邊距 */
+  width: 200px; /* 設置按鈕的寬度 */
+  height: 50px; /* 設置按鈕的高度 */
 }
 
 .submit-button:hover {
