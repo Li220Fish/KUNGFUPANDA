@@ -1,0 +1,70 @@
+/* 卡片容器樣式 */
+.restaurant-card {
+    width: 280px;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .restaurant-image {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+  }
+  
+  /* 餐廳資訊區域 */
+  .restaurant-info {
+    padding: 10px;
+  }
+  
+  /* 名稱與評分區域 */
+  .info-header {
+    display: flex;
+    justify-content: space-between; /* 左右對齊 */
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .restaurant-name {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    margin: 0; /* 移除預設 margin */
+  }
+  
+  .restaurant-rating {
+    font-size: 14px;
+    color: #999;
+  }
+  
+  /* 標籤區域 */
+  .restaurant-tags {
+    margin-bottom: 10px;
+    text-align: left; /* 確保標籤靠左對齊 */
+  }
+  
+  .tag {
+    display: inline-block;
+    color: #555;
+    font-size: 12px;
+    padding: 3px;
+    border-radius: 3px;
+  }
+  
+  /* 外送時間 */
+  .restaurant-delivery-time {
+    font-size: 12px;
+    color: #666666;
+    text-align: left; /* 確保文字靠左對齊 */
+  }
+
+  
+  .restaurant-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 20px; /* 增加卡片間距 */
+    padding: 20px;
+  }
