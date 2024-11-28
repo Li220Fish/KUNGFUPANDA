@@ -55,7 +55,7 @@
 
 
 .close-button button:hover svg {
-  fill: #7a7474f8; /* 懸停紅色 */
+  fill: #7a7474f8; 
 }
 
 .box-flex {
@@ -113,24 +113,23 @@
   background: white;
   padding: 0 4px;
 }
+
 .continue-title {
   display: flex;
   justify-content: center;
   margin-top: 20px;
 }
 
-.bds-c-btn {
+.continue-button {
   padding: 10px 188px;
   font-size: 16px;
   border: none;
   border-radius: 10px;
   background-color: #ccc; /* 灰色初始狀態 */
   color: white;
-  cursor: not-allowed;
-  transition: background-color 0.3s ease;
-}
-
-.bds-c-btn.enabled {
-  background-color: #ff69b4; /* 粉紅色啟用狀態 */
   cursor: pointer;
+
 }
+.continue-button:hover {
+    background-color: #e21b71dc; /* 懸停時背景顏色變化 */
+  }

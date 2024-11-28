@@ -1,5 +1,10 @@
-import React from "react";
+import React,{useState} from "react";
 import "./SignUp2.css";
+import "./SignUp3.js";
+import SignUp3 from "./SignUp3";
+
+
+
 
 const ArrowIcon = ({ onBack }) => {
   return (
@@ -23,8 +28,18 @@ const ArrowIcon = ({ onBack }) => {
   );
 };
 
-const SignUp2 = ({ onBack,onClose }) => {
+const SignUp2 = ({ onBack, onClose }) => {
+  const [isSignUp3Open, setSignUp3Open] = useState(false);
+  const handleContinue = () => {
+    setSignUp3Open(true);
+  };
+
+  const handleCloseSignUp3 = () => {
+    setSignUp3Open(false);
+  };
+
   return (
+    
     <div className="modal-overlay">
       <div className="modal-content">
         <ArrowIcon onBack={onBack} />
@@ -84,16 +99,14 @@ const SignUp2 = ({ onBack,onClose }) => {
       <label for="email" id="email-label">電子郵件</label>
       <div className="continue-title">
       <div class="bds-c-btn-cursor bds-is-disabled bds-c-btn-cursor--layout-default">
-        <button
-          class="bds-c-btn bds-is-disabled bds-c-btn-primary bds-c-btn--size-regular bds-is-idle bds-c-btn--layout-default zi-surface-base"
-          disabled=""
-          type="submit"
-          data-testid="email-view-continue-button"
-        >
+         <button className="continue-button" onClick={handleContinue}>
           <span class="bds-c-btn__idle-content">
             <span class="bds-c-btn__idle-content__label"><span>繼續</span></span>
           </span>
         </button>
+        {isSignUp3Open && (
+          <SignUp3 onClose={handleCloseSignUp3} />
+        )}
       </div>
       </div>
     </div>
