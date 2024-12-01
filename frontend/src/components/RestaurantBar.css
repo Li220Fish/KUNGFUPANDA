@@ -1,0 +1,50 @@
+/* 外層容器樣式 */
+.restaurant-bar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* 確保內容靠左對齊 */
+  background-color: #ffffff;
+  padding: 10px 0; /* 僅保留上下內邊距 */
+  border-bottom: 2px solid #e0e0e0; /* 下邊框 */
+  position: sticky; /* 固定在頁面上方 */
+  left: 0; /* 確保容器貼齊最左邊 */
+  top:60px;
+  z-index: 10; /* 確保位於其他內容之上 */
+  width: 100%; /* 填滿頁面寬度 */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* 添加陰影 */
+}
+
+/* 子項目容器 */
+.restaurant-bar .tab-item {
+  display: flex;
+  align-items: center; /* 圖標與文字垂直對齊 */
+  cursor: pointer;
+  margin-right: 10px; /* 控制每個項目之間的水平間距 */
+  padding: 5px 10px; /* 內邊距，讓點擊區域稍大一些 */
+  transition: color 0.3s, background-color 0.3s; /* 增加交互效果 */
+  border-radius: 5px; /* 可選，讓項目有點圓角 */
+}
+
+/* 圖標樣式 */
+.tab-icon {
+  font-size: 18px;
+  margin-right: 5px; /* 圖標與文字的距離 */
+}
+
+/* 標籤文字樣式 */
+.tab-label {
+  font-size: 14px;
+  color: #666; /* 默認文字顏色 */
+}
+
+/* 選中狀態樣式 */
+.tab-item.active {
+  color: #ffffff; /* 選中時的文字顏色 */
+  background-color: #007bff; /* 選中時的背景色 */
+}
+
+/* 移除最後一個項目的右邊距 */
+.restaurant-bar .tab-item:last-child {
+  margin-right: 0;
+}
+                           

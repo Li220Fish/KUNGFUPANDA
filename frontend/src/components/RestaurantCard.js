@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { ReactComponent as DeliveryIcon } from "../assets/motor.svg";
 import "./RestaurantCard.css";
 
 const RestaurantCard = ({ name, image, rating, deliveryTime, tags }) => {
@@ -24,7 +25,7 @@ const RestaurantCard = ({ name, image, rating, deliveryTime, tags }) => {
             </span>
           ))}
         </div>
-        <div className="restaurant-delivery-time">🕗 {deliveryTime} ．🛵</div>
+        <div className="restaurant-delivery-time">🕗 {deliveryTime}  <DeliveryIcon className="delivery-icon" /></div>
       </div>
     </div>
   );

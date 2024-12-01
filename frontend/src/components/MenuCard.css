@@ -1,0 +1,112 @@
+/* 卡片容器樣式 */
+.menu-list {
+  display: flex; /* 使用 Flexbox */
+  flex-wrap: wrap; /* 卡片容器允許換行 */
+  justify-content: space-between; /* 卡片之間水平分佈 */
+  gap: 20px; /* 卡片之間的水平和垂直間距 */
+  padding: 20px; /* 容器內邊距 */
+  margin: 0 auto; /* 居中容器 */
+  max-width: 900px; /* 設定容器最大寬度 */
+  margin-left: 120px;
+}
+
+/* 單個卡片樣式 */
+.menu-card {
+  height: 150px;
+  width: calc(50% - 20px); /* 每個卡片寬度為容器的一半，減去間距 */
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  display: flex; /* 使用 Flexbox 布局 */
+  justify-content: space-between; /* 左右分佈 */
+  align-items: center;
+  padding: 10px;
+  background-color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  cursor: pointer; /* 鼠標指針效果 */
+}
+
+/* 卡片資訊區域 */
+.menu-info {
+  flex: 1; /* 佔據剩餘空間 */
+  padding: 0 10px;
+  display: flex;
+  flex-direction: column; /* 垂直排列文字 */
+  justify-content: flex-start; /* 讓文字靠近容器上方 */
+  align-items: flex-start; /* 讓文字保持靠左 */
+  gap: 3px; /* 子項目之間的垂直間距 */
+}
+
+/* 名稱 */
+.menu-name {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  margin-top:-40px;
+  margin-bottom: 5px; /* 根據需要調整文字間距 */
+  text-align: left; /* 明確設置為靠左 */
+}
+
+/* 價格 */
+.menu-price {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 5px; /* 根據需要調整文字間距 */
+  text-align: left; /* 明確設置為靠左 */
+}
+
+/* 標語 */
+.menu-tagline {
+  font-size: 14px;
+  color: #888;
+  margin-top: 0; /* 可調整間距 */
+  text-align: left; /* 明確設置為靠左 */
+}
+
+
+/* 圖片區域 */
+.menu-image-container {
+  width: 140px;
+  height: 140px;
+  border-radius: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin-left: 10px; /* 與文字資訊區分隔 */
+}
+
+.menu-image {
+  width: 130px;
+  height: 130px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.plus-icon {
+  position: absolute;
+  bottom: 20px; /* 向上移動 */
+  right: 15px; /* 向左移動 */
+  width: 30px;
+  height: 30px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  color: #666;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.plus-icon:hover {
+  background-color: #ddd;
+  transform: scale(1.1);
+}
+
+.plus-icon:active {
+  transform: scale(0.9);
+}

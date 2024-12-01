@@ -1,0 +1,67 @@
+.store-header {
+    padding:50px 150px; /* 增加內部間距 */
+    border-bottom: 1px solid #e0e0e0;
+    background-color: #fff;
+    position: relative;
+    left: 0;
+    top: 60px;
+    width: 100%; /* 填滿頁面寬度 */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* 添加陰影 */
+    display: flex;
+    flex-direction: column; /* 讓 breadcrumb 和 store-content 垂直排列 */
+    align-items: flex-start; /* 內容靠左對齊 */
+}
+
+.breadcrumb { 
+    font-size: 18px; /* 字體大小 */
+    color: #242424; /* 字體顏色 */
+    margin-bottom: 20px; /* 與 store-content 的距離 */
+    font-weight: 500; /* 輕字體 */
+    width: 100%; /* 避免文字換行不對齊 */
+    text-align: left; /* 確保內容靠左 */
+    letter-spacing: 1px; /* 增加字母之間的間距 */
+}
+
+.breadcrumb-separator {
+    margin: 0 8px; /* 增加 '>' 之間的間距 */
+    
+}
+
+.store-content {
+    display: flex;
+    align-items: center; /* 垂直對齊 logo 和文字 */
+}
+
+.store-logo {
+    width: 156px;
+    height: 156px;
+    margin-right: 20px; /* 控制 logo 與文字的距離 */
+    border-radius: 10px;
+    object-fit: cover;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.store-info {
+    display: flex;
+    flex-direction: column;
+    text-align: left; /* 确保内容靠左对齐 */
+    align-items: flex-start; /* 确保子元素左对齐 */
+}
+
+.store-name {
+    font-size: 28px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.store-details {
+    font-size: 16px;
+    color: #666;
+    margin: 8px 0;
+}
+
+.store-rating {
+    font-size: 16px;
+    color: #999;
+    margin: 0; /* 避免默认的 margin 干扰布局 */
+}

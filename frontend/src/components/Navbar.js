@@ -7,20 +7,13 @@ import SignUp from "./SignUp";
 class Navbar extends Component {
   state = {
     isModalOpen: false, // 控制註冊彈窗顯示的狀態
-    modalType: '', // 區分登入或註冊彈窗
   };
 
   // 控制註冊彈窗顯示
-  toggleModal = (type = '') => {
-    this.setState((prevState) => ({
-      isModalOpen: !prevState.isModalOpen,
-      modalType: type,
-    }));
+  toggleModal = () => {
+    this.setState({ isModalOpen: !this.state.isModalOpen });
   };
-
   render() {
-    const { isModalOpen, modalType } = this.state;
-
     return (
       <nav className="NavbarItems"  >
         <div className="mobile-menu-icon"onClick={this.toggleModal}>
@@ -44,18 +37,20 @@ class Navbar extends Component {
         </div>
 
         <div className="bds-c-navbar__right">
-          {/* 登入按鈕 */}
-          <div className="bds-c-btn-cursor auth-buttons" onClick={() => this.toggleModal('login')}>
-            <a className="bds-c-btn bds-c-link-btn bds-c-btn-secondary bds-c-btn--size-small" aria-label="Navigate to log in page">
+          <div className="bds-c-btn-cursor auth-buttons"  onClick={this.toggleModal}>
+            <a className="bds-c-btn bds-c-link-btn bds-c-btn-secondary bds-c-btn--size-small" 
+               aria-label="Navigate to log in page" >
               <span>登入</span>
             </a>
+            <SignUp isOpen={this.state.isModalOpen} onClose={this.toggleModal} />
           </div>
-
-          {/* 註冊按鈕 */}
-          <div className="bds-c-btn-cursor auth-buttons" onClick={() => this.toggleModal('signup')}>
-            <a className="bds-c-btn bds-c-link-btn bds-c-btn-primary bds-c-btn--size-small" aria-label="Navigate to sign up page">
+          
+          <div className="bds-c-btn-cursor auth-buttons"  onClick={this.toggleModal}>
+            <a className="bds-c-btn bds-c-link-btn bds-c-btn-primary bds-c-btn--size-small" 
+               aria-label="Navigate to sign up page" >
               <span>註冊</span>
             </a>
+            <SignUp isOpen={this.state.isModalOpen} onClose={this.toggleModal} />
           </div>
 
           <div className="bds-c-btn-circular-cursor">
@@ -76,8 +71,7 @@ class Navbar extends Component {
             </Link>
           </div>
         </div>
-        {/* 註冊/登入彈窗 */}
-        {isModalOpen && <SignUp type={modalType} isOpen={isModalOpen} onClose={this.toggleModal} />}
+        
       </nav>
     );
   }

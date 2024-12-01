@@ -1,5 +1,7 @@
+/* 隱藏預設的 checkbox 外觀 */
 /*YEN*/
 .NavbarItems {
+  position: fixed;
   background-color: #fff;
   padding: 15px 30px;
   display: flex;
@@ -7,6 +9,7 @@
   align-items: center;
   width: 100%;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 1;
 }
 
 .NavbarItems a {

@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 import RestaurantCard from "./RestaurantCard";
 import "./RestaurantCard.css"; // 樣式文件
-
+import immage from '../assets/7.JPG';
 const RestaurantList = () => {
   // 初始化假資料
   const [restaurants, setRestaurants] = useState([
     {
       id: 1,
       name: "餐廳 A",
-      image: "https://via.placeholder.com/280x160", // Placeholder 圖片
+      image: immage, // Placeholder 圖片
       rating: 4.5,
       deliveryTime: "20-30 分鐘",
       tags: ["$．健康餐"],
@@ -29,6 +29,22 @@ const RestaurantList = () => {
       deliveryTime: "15-25 分鐘",
       tags: ["$．飲料"],
     },
+    {
+        id: 4,
+        name: "餐廳 D",
+        image: "https://via.placeholder.com/280x160",
+        rating: 4.1,
+        deliveryTime: "15-25 分鐘",
+        tags: ["$$．快炒"],
+      },
+    {
+        id: 5,
+        name: "餐廳 E",
+        image: "https://via.placeholder.com/280x160",
+        rating: 4.1,
+        deliveryTime: "5-20 分鐘",
+        tags: ["$．消夜"],
+      },
   ]);
   const [loading, setLoading] = useState(true);
 
@@ -44,9 +60,7 @@ const RestaurantList = () => {
         setLoading(false);
       }
     };
-
-    // 模擬延遲 2 秒後加載資料
-    setTimeout(fetchRestaurants, 2000);
+    fetchRestaurants()
   }, []);
 
   return (

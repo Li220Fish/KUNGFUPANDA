@@ -6,6 +6,8 @@
   overflow: hidden;
   background-color: #fff;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  flex: 1 1 calc(25% - 15px); /* 每個卡片占 25% 減去間距 */
+  max-width: calc(25% - 15px); /* 確保不會超出行寬 */
 }
 
 /* 餐廳圖片 */
@@ -65,11 +67,13 @@
 /* 卡片列表區域 */
 .restaurant-list {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  gap: 15px; /* 減少卡片之間的間距 */
+  flex-wrap: wrap; /* 允許卡片換行 */
+  justify-content: flex-start; /* 卡片靠左對齊 */
+  gap: 15px; /* 控制卡片之間的間距 */
   padding: 15px;
   margin-left: 150px; /* 保持向右的偏移 */
+  margin-top: 80px; /* 調整向下的距離 */
+  max-width: calc(4 * 240px + 3 * 15px); /* 確保每行最多放四個卡片，加上間距 */
 }
 
 /* 外送圖示 */
