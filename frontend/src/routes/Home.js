@@ -16,9 +16,8 @@ function Home() {
       <Hero
         cName="hero"
         heroImg={HeroImg}
-        title="BRING GOOD FOOD INTO"
-        title2="YOUR EVERYDAY"
-        text="It's the food and groceries you love, delivered"
+        title="從美食到生鮮雜貨 上萬種商品 "
+        title2="馬上點馬上到"
         buttonText="Get Started"
         url="/"
         btnClass="show"
