@@ -14,7 +14,7 @@
 }
 
 img {
-  width: 100%;
+  width:100%;
   height: 100%;
   object-fit: cover;
 }
@@ -22,21 +22,26 @@ img {
 .hero-text {
   position: absolute;
   top: 55%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100%;
+  left: 0; /* 將文字對齊到左邊 */
+  transform: none; /* 移除 transform 屬性 */
+  width: auto; /* 根據需要調整寬度 */
+  padding-left: 2rem; /* 可選：為了避免文字緊貼邊界，適當添加左邊距 */
 }
 
 .hero-text h1 {
-  font-size: 3rem;
-  font-weight: 740;
-  background: #fff;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  font-size: 2.5rem; /* 字体大小 */
+  font-weight: 740; /* 字体粗细 */
+  background: #000000; /* 背景颜色 */
+  -webkit-background-clip: text; /* 背景剪裁为文字 */
+  -webkit-text-fill-color: transparent; /* 文本透明效果 */
+  text-align: left; /* 确保文本左对齐 */
+  margin: 0; /* 清除默认的 margin 值 */
+  padding: 0; /* 清除默认的 padding 值 */
 }
 
+
 .hero-text p {
-  font-size: 1.3rem;
+  font-size: 1.1rem; /* 調整字體大小，從 1.3rem 改為 1.1rem */
   color: #fff;
   padding: 0.5rem 0 2rem 0;
 }
@@ -46,17 +51,95 @@ img {
   background: #fff;
   padding: 1rem 2rem;
   border-radius: 6px;
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: bold;
   letter-spacing: 2px;
   color: #222;
 }
+
 .hero-text .hide {
   display: none;
 }
+
+.search-form {
+  display: flex;
+  align-items: center;
+  width: 620px;
+}
+
+.search-input {
+  padding: 0.7rem;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  width:500px; /* 增加搜索栏宽度 */
+}
+
+.search-container {
+  background-color: white; /* 背景顏色設為白色 */
+  padding: 1rem; /* 添加內邊距 */
+  border-radius: 10px; /* 圓角邊框 */
+  display: flex; /* 讓內容水平排列 */
+  align-items: center; /* 垂直居中 */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* 添加陰影效果 */
+}
+
+.search-wrapper {
+  position: relative; /* 為 location-button 提供相對定位的參考 */
+  flex: 1; /* 搜索框占據剩餘空間 */
+}
+
+.search-input {
+  width: 100%;
+  padding: 0.7rem 4rem 0.7rem 1rem; /* 增加右側內邊距，為按鈕預留空間 */
+  font-size: 1rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  box-sizing: border-box; /* 確保 padding 不會影響框大小 */
+}
+
+.location-button {
+  position: absolute;
+  top: 50%;
+  right: 0.5rem; /* 按鈕緊貼搜索框右側 */
+  transform: translateY(-50%); /* 垂直居中 */
+  background-color: transparent;
+  color: #d03570;
+  border: none;
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  z-index: 1; /* 確保按鈕在輸入框上方 */
+  transition: background-color 0.3s ease;
+}
+
+.location-button:hover {
+  color: #b22d60; /* 按鈕 hover 效果 */
+}
+
+.search-button {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  background-color: #d03570;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-left: 15px; /* 與搜索框間距 */
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.search-button:hover {
+  background-color: #b22d60;
+  transform: scale(1.1); /* 搜索按鈕變大 */
+}
+
+
+
 @media screen and (max-width: 55px) {
   .hero-text h1 {
-    padding: 10px 200px;
+    padding: 10px 20px;
   }
   hero-text p {
     font-size: 1.1rem;
@@ -68,3 +151,6 @@ img {
     font-size: 1rem;
   }
 }
+
+
+
