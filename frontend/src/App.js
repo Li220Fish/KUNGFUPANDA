@@ -9,6 +9,7 @@ import SignUp from "./routes/SignUp";
 import Restaurant from "./routes/Restaurant";
 import ApplyPage from "./components/ApplyPage"; // 確保引入 ApplyPage
 import ApplyBar from "./components/ApplyBar"; // 引入 ApplyBar
+import StoreJoinPage from "./components/StoreJoinPage"; // 引入 
 
 export default function App() {
   return (
@@ -21,6 +22,8 @@ export default function App() {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/restaurant" element={<Restaurant />} /> //by lifish
         <Route path="/apply" element={<ApplyPage />} /> {/* 添加 ApplyPage 路由 */}
+        <Route path="/storejoin" element={<StoreJoinPage />}  /> {/* 添加 ApplyPage 路由 */}
+
       </Routes>
     </div>
   );

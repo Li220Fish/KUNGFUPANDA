@@ -28,11 +28,11 @@ const ApplyPage = () => {
         </button>
       </div>
       <div className="new-section">
-        <div className="section-title">與foodpanda合作外送</div>
+        <div className="section-title1">與foodpanda合作外送</div>
         <div className="section-content">
           <img src={foodpandaad} alt="foodpandaad" className="section-image" />
-          <div className="section-form">
-            <h2 className="form-title">填寫您的個人資訊</h2>
+          <div className="section-form123">
+            <h2 className="form-title123">填寫您的個人資訊</h2>
             <div className="form-group">
               <select id="position" name="position">
               <option value="">選擇您的城市</option>

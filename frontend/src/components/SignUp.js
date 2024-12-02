@@ -12,6 +12,7 @@ const SignUp = ({ isOpen, onClose }) => {
       <button
         class="bds-c-btn-circular"
         aria-label="Close"
+        onClick={onClose}/*1202xin新增*/
       >
         <svg
           aria-hidden="true"
