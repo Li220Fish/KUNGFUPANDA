@@ -1,0 +1,125 @@
+/* 隱藏預設的 checkbox 外觀 */
+/*YEN*/
+.NavbarItems {
+  position: fixed;
+  background-color: #fff;
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+}
+
+.NavbarItems a {
+  text-decoration: none;
+}
+
+.mobile-menu-icon {
+  display: none;
+  cursor: pointer;
+}
+
+.mobile-menu-icon svg {
+  fill: #333;
+}
+
+.brand-container {
+  display: flex;
+  align-items: center;
+}
+
+.foodpanda-span {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 25px;
+  font-weight: bold;
+  color: #ff2b85;
+  text-decoration: none;
+}
+
+.bds-c-navbar__right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.bds-c-navbar__right > * {
+  display: inline-flex;
+  align-items: center;
+}
+
+.bds-c-navbar__cart {
+  width: 40px;
+  height: 40px;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bds-c-btn-secondary {
+  background-color: #fff;
+  color: #000;
+  border: 1px solid #ddd;
+  border-radius: 7px;
+  text-align: center;
+  font-size: 14px;
+  padding: 5px 14px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.bds-c-btn-secondary:hover {
+  background-color: #f5f5f5;
+}
+
+.bds-c-btn-primary {
+  background-color: #ff2b85;
+  color: #fff;
+  border: none;
+  border-radius: 7px;
+  text-align: center;
+  font-size: 14px;
+  padding: 5px 14px;
+  transition: background-color 0.3s;
+  cursor: pointer;
+}
+
+.bds-c-btn-primary:hover {
+  background-color: #ff1a75;
+}
+
+/* 響應式設計 */
+@media screen and (max-width: 1024px) {
+  .NavbarItems {
+    padding: 15px 20px;
+  }
+
+  .mobile-menu-icon {
+    display: block;
+    order: 1;
+    padding-top: 5px;
+  }
+
+  .brand-container {
+    order: 2;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .bds-c-navbar__right {
+    order: 3;
+  }
+
+  .auth-buttons {
+    display: none !important;
+  }
+
+  .bds-c-navbar__cart {
+    margin-left: auto;
+  }
+}

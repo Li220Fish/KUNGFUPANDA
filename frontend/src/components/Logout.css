@@ -1,0 +1,101 @@
+/* 背景遮罩 */
+.logout-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  /* 彈窗容器 */
+  .logout-modal {
+    background-color: white;
+    border-radius: 12px;
+    width: 500px;
+    height: 216px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+    padding: 20px;
+    position: relative;
+  }
+  
+  /* 關閉按鈕 */
+  .logout-close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+  }
+  
+ 
+  .logout-title {
+    position: absolute;
+    top: 15px;
+    left: 20px;
+    font-size: 18px;
+    font-weight: 400;
+  }
+  
+  /* 內容文字 */
+  .logout-body {
+    position: absolute;
+    top: 90px;
+    left: 20px;
+    font-size: 16px;
+  }
+  
+  /* 按鈕區域 */
+  .logout-footer {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .logout-cancel-button,
+  .logout-confirm-button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .logout-cancel-button {
+    background-color: #ffffff;
+    color: #333;
+    position: absolute;
+    top: 150px;
+    right: 100px;
+    width: 60px;
+    height:47px;
+    font-size: 12px;
+    padding: 10px;
+    border: 1px solid #333030;
+  }
+  
+  .logout-cancel-button:hover {
+    background-color: #d6d6d6;
+  }
+  
+  .logout-confirm-button {
+    background-color: #e21b71dc;
+    color: #ffffff;
+    position: absolute;
+    top: 150px;
+    right: 30px;
+    width: 60px;
+    height:47px;
+    font-size: 12px;
+    padding: 10px;
+  }
+  
+  .logout-confirm-button:hover {
+    background-color: #e21b71;
+  }
+  

@@ -1,0 +1,246 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: hsl(0, 0%, 94%); /* 灰色背景 */
+}
+.checkout-page {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* 讓內容垂直居中 */
+    padding: 90px;
+    background-color: hsl(0, 0%, 94%);
+    min-height: 100vh;
+    margin-left: 20px;
+  }
+  
+  .mainbox {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-right: 400px;
+    max-width: 750px;
+  }
+  
+  .card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    width: 650px; /* 每塊方塊的寬度 */
+    padding: 20px;
+    display: flex;
+    border-radius: 15px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .address-info {
+    display: flex;
+    flex-direction: column; /* 垂直排列 */
+    gap: 20px; /* 子項之間的距離 */
+    width: 100%;
+    text-align: left;
+    padding: 10px;
+}
+.adressfix{
+  display: flex;
+  align-items: flex-start;
+  margin-left: -10px;
+}
+
+  .header-fix{
+    display: flex;
+    justify-content: space-between; /* 左右對齊 */
+    align-items: center;
+    background-color:transparent;
+    padding: 5px; /* 添加適當的內邊距 */
+    width: 100%;
+    margin-top: 4px;
+  }
+
+  .edit-button{
+    margin: 0;
+    background-color: transparent;
+    border: none;
+    margin-top: -15px;
+    padding: 20px 10px;
+  }
+
+  .edit-button:hover{
+    background-color: #d1d2d3;
+  }
+
+  
+  .textarea-container {
+    position: relative;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.textarea-label {
+    position: absolute;
+    top: 10px; /* 初始位置在文本框內 */
+    left: 12px; /* 與文本框內部文字對齊 */
+    font-size: 16px; /* 初始字體大小 */
+    color: #aaa; /* 初始顏色 */
+    background-color: white; /* 背景與文本框一致 */
+    padding: 0 5px; /* 避免文字與邊框重疊 */
+    transition: all 0.3s ease; /* 平滑過渡效果 */
+    pointer-events: none; /* 禁止鼠標事件影響 */
+}
+
+/* 文本框的樣式 */
+textarea {
+    width: 100%;
+    padding: 10px 12px; /* 內邊距設置 */
+    font-size: 16px; /* 字體大小 */
+    border: 1px solid #ccc; /* 邊框顏色 */
+    border-radius: 8px; /* 圓角 */
+    outline: none; /* 移除默認聚焦效果 */
+    resize: none; /* 禁止手動調整大小 */
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* 聚焦或有文字時的樣式 */
+textarea:focus + .textarea-label,
+textarea.focused + .textarea-label {
+    top: -8px; /* 標籤移動到上方 */
+    left: 15px; /* 調整水平位置 */
+    font-size: 10px; /* 縮小標籤字體 */
+    color: #110f0f; /* 標籤變為藍色 */
+}
+
+/* 聚焦時文本框的樣式 */
+textarea:focus {
+    border: 2px solid #110f0f; /* 聚焦邊框顏色 */
+    box-shadow: 0 0 5px rgba(97, 97, 97, 0.2); /* 添加陰影效果 */
+}
+
+.divider {
+  width: 100%; /* 分隔線寬度 */
+  height: 1px; /* 分隔線高度 */
+  background-color: #ddd; /* 分隔線顏色 */
+  margin-top: 10px;
+  margin-bottom: -5px; /* 與上下內容的距離 */
+}
+
+  .box {
+    margin: 10px 0;
+  }
+  
+  .delivery-options{
+    width: 100%;
+    padding: 10px;
+  }
+
+  .standard {
+    display: flex; /* 使用彈性布局 */
+    align-items: center; /* 垂直置中 */
+    width: 100%; /* 撐滿父容器 */
+    padding: 10px 10px; /* 內邊距調整 */
+    background-color: white; /* 白色背景 */
+    border: 1px solid #ccc; /* 邊框顏色 */
+    border-radius: 8px; /* 圓角邊框 */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 添加輕微陰影 */
+    cursor: pointer; /* 鼠標變成手型 */
+    transition: all 0.3s ease; /* 平滑過渡 */
+    margin-bottom: 15px;
+}
+
+/* 標籤內容樣式 */
+.standard label {
+    display: flex;
+    align-items: center; /* 圖標和文字垂直對齊 */
+    gap: 10px; /* 圖標與文字之間的距離 */
+    width: 100%; /* 撐滿按鈕容器 */
+    font-size: 16px; /* 字體大小 */
+    cursor: pointer; /* 鼠標變成手型 */
+    color: #333; /* 文字顏色 */
+}
+
+/* 圖標（radio 按鈕）樣式 */
+.standard input[type="radio"] {
+    appearance: none; /* 隱藏默認樣式 */
+    border: 2px solid #333; /* 外圈顏色 */
+    border-radius: 50%; /* 圓形 */
+    cursor: pointer; /* 鼠標變成手型 */
+    margin: 0; /* 移除默認間距 */
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+}
+  
+  .confirm-button {
+    background-color: #007bff;
+    color: white;
+    border: #110f0f;
+    border-radius: 4px;
+    padding: 10px 15px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+
+  .confirm-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .delivery-options label,
+  .payment-method label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .delivery-options input,
+  .payment-method input {
+    margin-right: 10px;
+  }
+
+  .money{
+    width: 30px;
+    height: 30px;
+  }
+  
+  .creditcard{
+    width: 30px;
+    height: 30px;
+  }
+  .creditcard2{
+    width: 30px;
+    height: 30px;
+  }
+
+  .creditcard3{
+    width: 30px;
+    height: 30px;
+  }
+
+  .creditcard4{
+    width: 30px;
+    height: 30px;
+  }
+
+  .creditcard5{
+    width: 30px;
+    height: 30px;
+  }
+
+  .creditcard6{
+    width: 30px;
+    height: 30px;
+  }
+
+  .checkout-btn {
+    width: 100%;
+    padding: 10px 20px;
+    background-color: #ff2b85;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 30px;
+  }

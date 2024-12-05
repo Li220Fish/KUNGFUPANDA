@@ -1,0 +1,415 @@
+  /* CashBar 主容器 */
+  .cashbar-container {
+    width: 450px;
+    height: 800px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column; /* 垂直排列 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0);
+    overflow: hidden;
+    position: relative;
+  }
+
+  /* 按鈕區域 */
+  .cashbar-expedition-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    background-color: #f7f7f7;
+  }
+
+  /* 按鈕基本樣式 */
+  .cashbar-btn {
+    flex: 1;  /* 讓每個按鈕都佔據相等的空間 */
+    padding: 20px 20px;  /* 調整內邊距來確保按鈕的大小一致 */
+    transition: transform 0.5s ease, background-color 0.5s ease;
+    font-size: 18px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    margin: 0;  /* 移除默認邊距，讓按鈕緊密排列 */
+  }
+
+  /* 主要按鈕樣式 */
+  .cashbar-btn-primary {
+    background-color: #fffefe;
+    color: #000;
+  }
+
+  /* 次要按鈕樣式 */
+  .cashbar-btn-secondary {
+    background-color: #fffdfd;
+    color: #000;
+  }
+
+  /* 當按鈕被選中時，讓另一個按鈕暗掉 */
+  .cashbar-btn.active {
+    opacity: 1; /* 讓選中的按鈕保持原來亮度 */
+    border-bottom: 1.5px solid #a3a2a2;
+  }
+
+  .cashbar-btn:not(.active) {
+    background-color:rgba(182, 179, 180, 0.05);
+    border-bottom: 1.5px solid rgba(77, 72, 74, 0.3);
+    color: #000;
+  }
+
+  /* 內容區域 */
+  .cashbar-content {
+    height: calc(100% - 200px); /* 減去底部總計區域的高度 */
+    overflow-y: auto;
+    padding: 15px;
+    margin-bottom: 10px; /* 防止底部按鈕區域被覆蓋 */
+  }
+
+  .cashbar-btn.active:hover {
+    background-color: rgba(224, 89, 146, 0.2); /* 淡淡的粉色背景 */
+    border: 1px solid #ddd;
+    transform: scale(0.95);
+  }
+
+  .cashbar-btn:not(.active):hover{
+    background-color: rgba(77, 72, 74, 0.3); /* 淡淡的灰色背景 */
+    transform: scale(0.98);
+  }
+
+  .cashbar-btn:active {
+    transform: scaleY(0.9); /* 按下時縮小 */
+  }
+
+
+  /* 空購物車樣式 */
+  .empty-cart {
+    text-align: center;
+    padding: 10px;
+    font-size: 18px;
+    color: #999;
+  }
+
+  /* 購物車摘要 */
+  .cart-summary {
+    height:200px; /* 設置固定高度 */
+    padding: 15px;
+    background-color: #fff;
+    border-top: 1px solid #ddd;
+    z-index: 1; /* 確保總計區域在最上層 */
+    position: absolute; /* 固定在底部 */
+    bottom: 0; /* 距離底部 0px */
+    width: 100%; /* 確保總結區域寬度填滿父容器 */
+  }
+
+  .order-offer{
+    display: flex;
+    align-items: flex-start;
+    padding: 5px;
+    position: relative;
+  }
+
+  /* 查看明細按鈕 */
+  .check-credit {
+    display: flex;
+    align-items: flex-start; /* 左對齊 */
+    margin-top: 5px; /* 讓按鈕與價格間隔一些空間 */
+    padding: 8px 8px;
+    background-color: transparent;
+    color: rgb(15, 1, 1);
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+    text-decoration: underline;
+  }
+
+
+  /* 結帳按鈕 */
+  .checkout-btn {
+    width: 100%;
+    padding: 10px 20px;
+    background-color: #ff2b85;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 30px;
+  }
+
+  .total-section {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 5px;
+    margin-top: 20px;
+  }
+
+  .total-price{
+    color: #ff2b85;
+    margin-left: 265px;
+  }
+
+  .checkout-btn:disabled {
+    width: 100%;
+    padding: 10px 20px;
+    background-color: #aaa2a5;
+    color: #ebe6e6;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: not-allowed;
+  }
+
+
+  /* 購物車項目列表 */
+.cart-items-list {
+  padding: 15px;
+  overflow-y: auto; /* 允許滾動 */
+  max-height: 500px; /* 設定最大高度，當超出時會顯示滾動條 */
+  margin-bottom: 10px;
+}
+
+/* 每個購物車項目 */
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 2;
+}
+.cart-item-details {
+  display: flex;
+  flex-direction: column;  /* 垂直排列名稱和價格 */
+  flex: 1;
+  white-space: nowrap;
+}
+
+
+/* 圖片 */
+.cart-item-image {
+  width: 50px;
+  height: 50px;
+  object-fit: cover; /* 確保圖片按比例縮放並裁剪 */
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+/* 餐點名稱 */
+.cart-item-name {
+  font-size: 20px;
+  color: #333;
+  flex: 1;
+  margin-right: 200px;
+}
+
+/* 餐點價格 */
+.cart-item-price {
+  font-size: 16px;
+  color: #0b0105;
+  position: absolute;
+  margin-top: 27px;
+  margin-right: 150px;
+}
+
+/* 按鈕區域 */
+.cart-item-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  bottom: 5px;
+  right: 10px; 
+}
+
+
+/* 按鈕樣式 */
+.quantity-btn {
+  padding: 8px 12px;
+  font-size: 15px;
+  border: none;
+  border-radius: 100px;
+  cursor: pointer;
+  background-color:transparent;
+  color: rgb(6, 0, 0);
+  margin-top: 6px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  z-index: 2;  
+}
+
+/* 按鈕：懸停時 */
+.quantity-btn:hover {
+  background-color: #c6c2c4;
+  transform: scale(1.05);
+}
+
+.small-total {
+  display: flex; /* 使用 Flexbox 佈局 */
+  justify-content: space-between; /* 左右對齊 */
+  align-items: center; /* 垂直方向居中 */
+  padding: 10px; /* 添加適當的內邊距 */
+  background-color:transparent; /* 可選：背景顏色 */
+  width: 100%; /* 確保佔滿容器寬度 */
+}
+
+.left-text {
+  margin: 0; /* 移除默認的段落外邊距 */
+ 
+}
+
+.right-text {
+  margin: 0; /* 移除默認的段落外邊距 */
+  color: #333; /* 自訂右側文字顏色 */
+
+}
+
+.dede{
+  display: flex; /* 使用 Flexbox 佈局 */
+  justify-content: space-between; /* 左右對齊 */
+  align-items: center; /* 垂直方向居中 */
+  padding: 10px; /* 添加適當的內邊距 */
+  background-color:transparent; /* 可選：背景顏色 */
+  width: 100%; /* 確保佔滿容器寬度 */
+}
+
+.dev{
+  margin: 0; /* 移除默認的段落外邊距 */
+
+}
+
+.pri{
+  margin: 0; /* 移除默認的段落外邊距 */
+  color: #333; /* 自訂右側文字顏色 */
+}
+
+.crossed-out {
+  text-decoration: line-through; /* 加入刪除線 */
+  color: #999; /* 可選：讓被劃掉的文字顏色變淺 */
+}
+
+.divider {
+  width: 100%; /* 分隔線寬度 */
+  height: 1px; /* 分隔線高度 */
+  background-color: #ddd; /* 分隔線顏色 */
+  margin-top: 10px;
+  margin-bottom: 20px; /* 與上下內容的距離 */
+}
+
+.tableware{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+
+.word{
+  display: flex;
+  flex-direction: column;
+}
+.word1{
+  white-space: nowrap;
+}
+.word2{
+  font-size: 12px;
+  color: #B0B0B0;
+}
+
+.image-button {
+  display: flex;
+  justify-content: flex-start; /* 將內容推到最右邊 */
+  align-items: flex-start; /* 垂直方向上對齊到頂部 */
+  background-color: #3d3c3c; /* 背景為黑色 */
+  border: none; /* 去除邊框 */
+  cursor: pointer; /* 當滑鼠懸停時顯示為手形 */
+  padding: 10px;
+  border-radius: 10px;
+  
+  min-width: 60px; /* 設定一個最小寬度，避免隨著內部大小變動 */
+}
+
+.button-icon {
+  width: 20px; /* 固定圖標大小 */
+  height: 20px; /* 旋轉和移動過程的過渡效果 */
+  transform-origin: bottom right;
+}
+
+.rotate-right {
+  animation: rotateRight 0.7s forwards; /* 向右旋轉動畫 */
+}
+
+.rotate-left {
+  animation: rotateLeft 0.7s forwards; /* 向左旋轉動畫 */
+}
+
+@keyframes rotateRight {
+  0% {
+    transform: rotate(0deg) translateX(0);
+  }
+  100% {
+    transform: rotate(90deg) translateX(0); /* 向右旋轉 180 度 */
+  }
+}
+
+@keyframes rotateLeft {
+  0% {
+    transform: rotate(90deg) translateX(-5px);
+  }
+  100% {
+    transform: rotate(0deg) translateX(0); /* 回到初始位置 */
+  }
+}
+
+.quantity-display{
+  z-index: 3;
+}
+
+/* 按鈕：被禁用時 */
+.quantity-btn:disabled {
+  background-color: #aaa;
+  cursor: not-allowed;
+}
+
+
+
+.outer-button-container {
+  display: flex;            
+  position: absolute; 
+  align-items: center;        
+  margin-top: 30px;   
+  left: 285px;  
+  z-index: 1;               
+}
+
+.outer-button {
+  background-color: #ffffff;
+  border:1px solid #a4a3a3;
+  padding: 20px 50px;
+  border-radius: 30px;
+  cursor: pointer;          
+}
+/* 購物車為空時顯示提示 */
+.empty-cart {
+  text-align: center;
+  padding: 10px;
+  font-size: 18px;
+  color: #999;
+}
+
+.progress-bar-container {
+  width: 100%;       /* 設定父容器的寬度 */
+  height: 8px;      /* 設定進度條的高度 */
+  background-color: #e0e0e0;  /* 背景顏色 */
+  overflow: hidden;
+  position: absolute;
+  bottom: -5px; 
+
+}
+
+.progress-bar {
+  height: 100%;      /* 高度占滿容器 */
+  transition: width 0.3s ease; /* 設置動畫過渡效果 */
+}

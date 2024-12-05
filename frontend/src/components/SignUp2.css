@@ -1,0 +1,135 @@
+/* 全局樣式 */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* 彈窗內容 */
+.modal-content {
+  position: relative; /* 增加相對定位基準 */
+  flex-direction: column;
+  background: white;
+  padding: 20px;
+  border-radius: 20px;
+  align-items:center ;
+  width: 450px;
+  height: 400px;
+  text-align: center;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+/* 關閉按鈕 */
+.close-button {
+  position: absolute;
+  top: 10px; 
+  right: 10px; 
+}
+/* 返回按鈕圖標 */
+.arrow-icon {
+  position: absolute;
+  top: 20px;
+  left: 26px;
+  cursor: pointer;
+  fill: #555; /* 按鈕顏色 */
+  transition: transform 0.2s, fill 0.2s;
+}
+
+.arrow-icon:hover {
+  fill: #000; /* 懸停效果 */
+  transform: scale(1.1);
+}
+
+/* 關閉按鈕 */
+.close-button {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+}
+
+
+.close-button button:hover svg {
+  fill: #7a7474f8; 
+}
+
+.box-flex {
+  position: absolute;
+  top: 88px;
+  left: 35px;
+}
+
+.email-title{
+  position: relative;
+  top: 140px;
+  right: 110px;
+  font-size: 23px;
+}
+.check-title{
+  position: relative;
+  top: 150px;
+  right:100px;
+  font-size: 14px;
+  font-weight: 100;
+}
+
+.input-box {
+  position: relative;
+  margin-top: 170px;
+}
+
+.input-box input {
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-size: 16px;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.input-box label {
+  position: absolute;
+  top: 23px;
+  left: 20px;
+  transform: translateY(-50%);
+  font-size: 16px;
+  color: #554c4c;
+  transition: 0.3s ease;
+  pointer-events: none;
+}
+
+.input-box input:focus + label,
+.input-box input:not(:placeholder-shown) + label {
+  top: -10px;
+  left: 10px;
+  font-size: 12px;
+  color: #333333;
+  background: white;
+  padding: 0 4px;
+}
+
+.continue-title {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.continue-button {
+  padding: 10px 188px;
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
+  background-color: #ccc; /* 灰色初始狀態 */
+  color: white;
+  cursor: pointer;
+
+}
+.continue-button:hover {
+    background-color: #e21b71dc; /* 懸停時背景顏色變化 */
+  }

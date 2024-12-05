@@ -1,0 +1,194 @@
+/* 側邊欄的容器 */
+.filter-sidebar {
+    position: fixed; /* 固定在頁面左側 */
+    top: 150px;
+    left: calc(((100vw - 1300px) / 200) * 250px);
+    transition: left 0.3s ease-in-out;
+    width: 270px; /* 側邊欄的寬度 */
+    max-width: 80%;
+    height: calc(100vh - 150px);
+    background-color: #ffffff;
+    border-right: 1px solid #e0e0e0;
+    padding: 20px;
+    overflow-y: auto; /* 滾動條 */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+    border-radius: 10px; /* 圓角設定，10px 可以根據需要調整 */
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+}
+
+ /* 1300px 及以下螢幕寬度 */
+ @media (max-width: 1100px) {
+    .filter-sidebar {
+      display: none;
+    }
+  }
+  
+  /* 1500px 及以上螢幕寬度 */
+  @media (min-width: 1500px) {
+    .filter-sidebar {
+      left: 100px; /* 固定為 250px */
+    }
+  }
+  
+  @media (min-width: 1700px) {
+    .filter-sidebar {
+      left: 200px; /* 固定為 250px */
+    }
+  }
+
+/* 清除所有按鈕 */
+.filter-sidebar .clear-all {
+    position: absolute; /* 讓按鈕浮動在容器的右上角 */
+    top: 10px; /* 距離上邊 10px */
+    right: 20px; /* 距離右邊 20px */
+    z-index: 2; /* 保證按鈕在其他內容上面 */
+}
+
+.filter-sidebar .clear-all button {
+    background-color: #fff;
+    color: #000;
+    border: 1px solid #ffffff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.filter-sidebar .clear-all button:hover {
+    background-color: #f1f1f1;
+}
+
+/* 其餘樣式不變 */
+input[type="checkbox"],
+input[type="radio"] {
+    appearance: none; /* 移除預設樣式 */
+    -webkit-appearance: none; /* 針對 WebKit 瀏覽器 */
+    background-color: #fff; /* 預設白色背景 */
+    border: 2px solid #000; /* 邊框設定為黑色 */
+    width: 20px; /* 調整大小 */
+    height: 20px;
+    cursor: pointer;
+    position: relative;
+    border-radius: 3px; /* 讓選擇框有一點圓角 */
+    margin-right: 10px;
+    vertical-align: middle; /* 讓框和文字垂直對齊 */
+}
+
+/* 當選擇框被選中時 */
+input[type="checkbox"]:checked,
+input[type="radio"]:checked {
+    background-color: #000; /* 被選中時背景設為黑色 */
+    border-color: #000; /* 邊框設為黑色 */
+}
+
+/* 自定義選中的標記（如勾選符號） */
+input[type="checkbox"]:checked::before {
+    content: '✔'; /* 使用 Unicode 或符號來表示勾選 */
+    color: #fff; /* 勾選符號顏色為白色 */
+    font-size: 12px;
+    position: absolute;
+    top: 0;
+    left: 3px;
+}
+
+/* 隱藏預設的 radio 按鈕外觀 */
+input[type="radio"] {
+    appearance: none; /* 移除預設樣式 */
+    -webkit-appearance: none; /* 針對 WebKit 瀏覽器 */
+    background-color: #fff;
+    border: 2px solid #000; /* 黑色邊框 */
+    width: 20px; /* 調整大小 */
+    height: 20px;
+    cursor: pointer;
+    border-radius: 50%; /* 讓選擇框變成圓形 */
+    position: relative;
+    display: inline-block;
+    margin-right: 10px; /* 調整選擇框與文字之間的距離 */
+    vertical-align: middle; /* 讓框和文字垂直對齊 */
+}
+
+/* 當 radio 按鈕被選中時 */
+input[type="radio"]:checked {
+    background-color: #000; /* 被選中時背景設為黑色 */
+    border-color: #000;
+}
+
+/* 選中後顯示白色小圓 */
+input[type="radio"]:checked::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 10px; /* 白色小圓的大小 */
+    height: 10px;
+    background-color: #fff;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* 篩選部分的標題 */
+.filter-section h3 {
+    margin-top: 20px;
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.price-filter button {
+    background-color: #fff;
+    border: 2px solid #000; /* 黑色邊框 */
+    width: 55px;
+    height: 35px;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 20px; /* 圓角按鈕 */
+    margin-right: 10px; /* 右側間距 */
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.price-filter button:hover {
+    background-color: #f0f0f0; /* 懸停背景色 */
+}
+
+.price-filter .selected {
+    background-color: #000; /* 選中時背景設為黑色 */
+    color: #fff; /* 選中時文字顏色為白色 */
+}
+
+/* 快速篩選按鈕樣式 */
+.quick-filter {
+    display: block;
+    background-color: #f3f3f3;
+    border: 1px solid #ccc;
+    padding: 8px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    text-align: left;
+}
+
+/* 搜尋框樣式 */
+.search-cuisine {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+/* 標籤樣式 */
+.filter-section label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #555;
+    cursor: pointer;
+}
+
+.filter-sidebar .filter-section {
+    margin-bottom: 20px;
+}

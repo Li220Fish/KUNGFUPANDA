@@ -1,0 +1,63 @@
+.meals-page {
+  display: flex;
+  flex-direction: column;
+}
+
+.meals-header {
+  text-align: center;
+  padding: 20px;
+  background-color: #fff;
+  border-bottom: 1px solid #ddd;
+}
+
+.tabs-container {
+  position: relative;
+  z-index: 10;
+  background-color: #fff;
+  border-bottom: 1px solid #ddd;
+}
+
+.tabs-container.sticky {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.tabs {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 0;
+  list-style: none;
+}
+
+.tabs li {
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.meals-content {
+  display: flex;
+  margin-top: 5px;
+  gap: 950px;
+  padding: 10px;
+}
+
+.menu-items {
+  flex: 3; /* 主內容占較大比例 */
+}
+
+.cashbar-con {
+  position: absolute;
+  left: 1100px;
+  top: 415px;
+}
+
+.menu-item-image {
+  width: 100%;        /* 讓圖片填滿容器 */
+  max-width: 150px;   /* 限制圖片的最大寬度 */
+  height: auto;       /* 保持圖片比例 */
+  object-fit: cover;  /* 圖片填充容器，裁剪多餘部分 */
+  border-radius: 8px; /* 圓角效果 */
+  margin-bottom: 10px; /* 圖片與文字的間距 */
+}

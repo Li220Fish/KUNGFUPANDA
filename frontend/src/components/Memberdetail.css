@@ -1,0 +1,355 @@
+  .name-box-container {
+    position: absolute; /* 絕對定位父容器 */
+    top: 100px; /* 設定整體位置，您可以根據需要調整 */
+    left: 50%; /* 水平居中 */
+    transform: translateX(-50%); /* 精確居中 */
+  }
+
+  .my-account{
+    position: relative;
+    top:10px;
+    right: 165px;
+    font-size: 18px;
+  }
+
+  .info-icon{
+    position: relative;
+    top:-8px;
+    right: 55px;
+  }
+
+  
+  .name-box {
+    position: relative;
+    margin-bottom: 1rem;
+  }
+  
+  .name-box input {
+    width: 100%;
+    padding: 10px 100px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+  }
+  
+  .name-box label {
+    position: absolute;
+  top: 50%; /* 調整標籤初始位置，讓它在輸入框內垂直居中 */
+  left: 0.75rem; /* 調整標籤水平位置 */
+  transform: translateY(-50%); /* 垂直居中調整 */
+  font-size: 1rem;
+  color: #666;
+  transition: all 0.2s ease-in-out;
+  }
+  
+  .name-box input:focus + label,
+  .name-box input:not(:placeholder-shown) + label {
+    top: 0.75rem;
+    left: 0.75rem;
+    font-size: 0.75rem;
+    color: #333;
+  }
+  
+  .disabled {
+    padding: 6px 12px;
+    font-size: 16px;
+    border: none;
+    border-radius: 10px;
+    background-color: #ccc; /* 灰色初始狀態 */
+    color: white;
+    cursor: pointer;
+    position: relative;
+    top:-5px;
+    right: 175px;
+    
+  }
+  .disabled:hover {
+      background-color: #e21b71dc; /* 懸停時背景顏色變化 */
+    }
+  
+    hr {
+      width: 400px;    /* 設定水平線的寬度為 80% */
+      height: 2px;   /* 設定水平線的高度 */
+      border: none;  /* 移除默認的邊框 */
+      background-color: #ccccccb4; /* 設定顏色 */
+      margin: 20px ;  /* 設定上下邊距 */
+    }
+    .mail-box-container {
+      position: absolute; /* 絕對定位父容器 */
+      top: 500px; /* 設定整體位置，您可以根據需要調整 */
+      left: 50%; /* 水平居中 */
+      transform: translateX(-50%); /* 精確居中 */
+    }
+  
+    .my-mail{
+      position: relative;
+      top:-15px;
+      right: 163px;
+      font-size: 18px;
+    }
+  
+    /* Input and button styling */
+    
+    .mail-box {
+      position: relative;
+      margin-bottom: 1rem;
+    }
+    
+    .mail-box input {
+      width: 100%;
+      padding: 10px 100px;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+    
+    .mail-box label {
+      position: absolute;
+    top: 50%; /* 調整標籤初始位置，讓它在輸入框內垂直居中 */
+    left: 0.75rem; /* 調整標籤水平位置 */
+    transform: translateY(-50%); /* 垂直居中調整 */
+    font-size: 1rem;
+    color: #666;
+    transition: all 0.2s ease-in-out;
+    }
+    
+    .mail-box input:focus + label,
+    .mail-box input:not(:placeholder-shown) + label {
+      top: 0.75rem;
+      left: 0.75rem;
+      font-size: 0.75rem;
+      color: #333;
+    }
+    
+    .mail-save {
+      padding: 6px 12px;
+      font-size: 16px;
+      border: none;
+      border-radius: 10px;
+      background-color: #ccc; /* 灰色初始狀態 */
+      color: white;
+      cursor: pointer;
+      position: relative;
+      top:-5px;
+      right: 175px;
+      
+    }
+    .mail-save:hover {
+        background-color: #e21b71dc; /* 懸停時背景顏色變化 */
+      }
+    
+      
+      .password-box-container {
+        position: absolute; /* 絕對定位父容器 */
+        top: 800px; /* 設定整體位置，您可以根據需要調整 */
+        left: 50%; /* 水平居中 */
+        transform: translateX(-50%); /* 精確居中 */
+      }
+    
+      .my-password{
+        position: relative;
+        top:-15px;
+        right: 180px;
+        font-size: 18px;
+      }
+    
+      /* Input and button styling */
+      
+      .password-box {
+        position: relative;
+        margin-bottom: 1rem;
+      }
+      
+      .password-box input {
+        width: 100%;
+        padding: 10px 100px;
+        font-size: 1rem;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+      }
+      
+      .password-box label {
+        position: absolute;
+      top: 50%; /* 調整標籤初始位置，讓它在輸入框內垂直居中 */
+      left: 0.75rem; /* 調整標籤水平位置 */
+      transform: translateY(-50%); /* 垂直居中調整 */
+      font-size: 1rem;
+      color: #666;
+      transition: all 0.2s ease-in-out;
+      }
+      
+      .password-box input:focus + label,
+      .password-box input:not(:placeholder-shown) + label {
+        top: 0.75rem;
+        left: 0.75rem;
+        font-size: 0.75rem;
+        color: #333;
+      }
+      
+      .password-save {
+        padding: 6px 12px;
+        font-size: 16px;
+        border: none;
+        border-radius: 10px;
+        background-color: #ccc; /* 灰色初始狀態 */
+        color: white;
+        cursor: pointer;
+        position: relative;
+        top:-5px;
+        right: 175px;
+        
+      }
+      .password-save:hover {
+          background-color: #e21b71dc; /* 懸停時背景顏色變化 */
+        }
+      
+        
+      
+        .payment-box-container {
+          position: absolute; /* 絕對定位父容器 */
+          top: 1100px; /* 設定整體位置，您可以根據需要調整 */
+          left: 50%; /* 水平居中 */
+          transform: translateX(-50%); /* 精確居中 */
+        }
+      
+        .payment{
+          position: relative;
+          top:-10px;
+          right: 170px;
+          font-size:18px;
+        }
+        .payment-content{
+          position: relative;
+          top: 0;
+          right: 103px;
+          font-size: 16px;
+          font-weight: 400;
+        }
+        .connect-box-container {
+          position: absolute; /* 絕對定位父容器 */
+          top: 1300px; /* 設定整體位置，您可以根據需要調整 */
+          left: 50%; /* 水平居中 */
+          transform: translateX(-50%); /* 精確居中 */
+        }
+      
+        .my-connect{
+          position: relative;
+          top:-10px;
+          right: 150px;
+          font-size:18px;
+        }
+        .box{
+          position: relative; /* 增加相對定位基準 */
+          flex-direction: column;
+          background: white;
+          padding: 20px;
+          border-radius: 20px;
+          width: 174px;
+          height: 80px;
+          top:10px;
+          right: 120px;
+          box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+        }
+        .google{
+          position: relative;
+          top:-65px;
+          right: 20px;
+          font-size:18px;
+        }
+        .google-content{
+          position: relative;
+          top:-160px;
+          right: -5px;
+          font-size:15px;
+        }
+
+        
+        .delete-box-container {
+          position: absolute; /* 絕對定位父容器 */
+          top: 1600px; /* 設定整體位置，您可以根據需要調整 */
+          left: 50%; /* 水平居中 */
+          transform: translateX(-50%); /* 精確居中 */
+        }
+      
+        .delete{
+          position: relative;
+          top:-10px;
+          right: 160px;
+          font-size:18px;
+        }
+        .delete-content{
+          position: relative;
+          top: 0;
+          right: 32px;
+          font-size: 14px;
+          font-weight: 400;
+          display: inline;
+        }
+
+        .delete-button {
+          padding: 2px 10px;
+          font-size: 14px;
+          border: none;
+          border-radius: 8px;
+          background-color: #ccc; /* 灰色初始狀態 */
+          color: white;
+          cursor: pointer;
+          position: relative;
+          top:40px;
+          right: 285px;
+          
+        }
+        .delete-button:hover {
+            background-color: #e21b71dc; /* 懸停時背景顏色變化 */
+          }
+        .Popular-restaurant-container{
+          position: absolute; /* 絕對定位父容器 */
+          top: 1700px; /* 設定整體位置，您可以根據需要調整 */
+          left: 50%; /* 水平居中 */
+          transform: translateX(-50%); /* 精確居中 */
+        }
+        .Popular-restaurant-container {
+          margin-top: 20px;
+          padding: 15px;
+          border-top: 1px solid #ccc;
+        }
+        
+        .Popular-restaurant-container h4 {
+          font-size: 18px;
+          font-weight: bold;
+          color: #333;
+          margin-bottom: 10px;
+        }
+        
+        .Popular-restaurant-container p {
+          font-size: 14px;
+          line-height: 2;
+          color: #555;
+          display: flex;
+          flex-wrap: wrap;
+        }
+        
+        .Popular-restaurant-container a {
+          text-decoration: none;
+          color: #4a4a4b;
+          font-weight: 500;
+          transition: color 0.3s;
+        }
+        
+        .Popular-restaurant-container a:hover {
+          color: #161616;
+        }
+        
+        .Popular-restaurant-container a:not(:last-child)::after {
+          content: " | ";
+          margin: 0 8px;
+          color: #cfcccc;
+        }
+        
+
+        .Popular-food-container{
+          position: absolute; /* 絕對定位父容器 */
+          top: 1850px; /* 設定整體位置，您可以根據需要調整 */
+          left: 50%; /* 水平居中 */
+          transform: translateX(-50%); /* 精確居中 */
+        }
