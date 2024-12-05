@@ -24,7 +24,6 @@ const ArrowIcon = ({ onBack }) => {
   };
 
   const SignUp3 = ({ onBack,onClose }) => {
-    
     return (
       <div className="modal-overlay">
         <div className="modal-content">
