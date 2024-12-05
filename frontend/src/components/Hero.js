@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import "./HeroStyles.css";
 
 function Hero(props) {
-  const [searchQuery, setSearchQuery] = useState('');
-  const [location, setLocation] = useState(null); // 用於儲存定位的經緯度
+  const [searchQuery, setSearchQuery] = useState("");
+  const [location, setLocation] = useState(null); // 儲存經緯度
+  const [address, setAddress] = useState(""); // 儲存轉換後的地址
 
   const handleSearchChange = (event) => {
     setSearchQuery(event.target.value);
@@ -11,13 +12,12 @@ function Hero(props) {
 
   const handleSearchSubmit = (event) => {
     event.preventDefault();
-    console.log('Search query:', searchQuery);
-    // 這裡可以處理搜索邏輯，例如進行 API 請求等
+    console.log("Search query:", searchQuery);
   };
 
   const handleLocationClick = () => {
     if (!navigator.geolocation) {
-      alert('你的瀏覽器不支援地理定位功能');
+      alert("你的瀏覽器不支援地理定位功能");
       return;
     }
 
@@ -25,12 +25,33 @@ function Hero(props) {
       (position) => {
         const { latitude, longitude } = position.coords;
         setLocation({ latitude, longitude });
-        setSearchQuery(`${latitude}, ${longitude}`); // 將定位結果填入搜尋欄
         console.log(`Latitude: ${latitude}, Longitude: ${longitude}`);
+
+        // TomTom API 呼叫
+        const apiKey = "Eod30Q91eghDUCGNFrUUGJ2ShgljQRgw"; // 替換為 TomTom API 金鑰
+        const url = `https://api.tomtom.com/search/2/reverseGeocode/${latitude},${longitude}.json?key=${apiKey}`;
+
+        fetch(url)
+          .then((response) => response.json())
+          .then((data) => {
+            if (data.addresses && data.addresses.length > 0) {
+              const formattedAddress = data.addresses[0].address.freeformAddress;
+              setAddress(formattedAddress); // 更新地址
+              setSearchQuery(formattedAddress); // 同步地址到輸入框
+              console.log("Address:", formattedAddress);
+            } else {
+              console.error("無法獲取地址", data);
+              alert("無法獲取地址，請稍後再試");
+            }
+          })
+          .catch((error) => {
+            console.error("TomTom API 錯誤:", error);
+            alert("地理位置解析失敗，請檢查網路連接");
+          });
       },
       (error) => {
-        console.error('定位失敗:', error.message);
-        alert('無法獲取定位，請檢查瀏覽器權限');
+        console.error("定位失敗:", error.message);
+        alert("無法獲取定位，請檢查瀏覽器權限");
       }
     );
   };
@@ -45,24 +66,25 @@ function Hero(props) {
         <p>{props.text}</p>
 
         <div className="search-container">
-          {/* 搜索欄 */}
           <form onSubmit={handleSearchSubmit} className="search-form">
-            <div className="search-wrapper">
-              <input
-                type="text"
-                className="search-input"
-                placeholder="輸入你欲送達的地址"
-                value={searchQuery}
-                onChange={handleSearchChange}
-              />
-              <button
-                type="button"
-                className="location-button"
-                onClick={handleLocationClick}
-              >
-                尋找我的位置
-              </button>
-            </div>
+          <div className="search-wrapper">
+            <input
+              type="text"
+              className="search-input"
+              value={searchQuery}
+              onChange={handleSearchChange}
+              placeholder=" " /* 設置空的 placeholder */
+            />
+            <label className="floating-label">輸入你欲送達的地址</label>
+            <button
+              type="button"
+              className="location-button"
+              onClick={handleLocationClick}
+            >
+              🎯尋找我的位置
+            </button>
+          </div>
+
             <button type="submit" className="search-button">尋找美食</button>
           </form>
         </div>

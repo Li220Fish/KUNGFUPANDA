@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './FilterSidebar.css';
 
-function FilterSidebar() {
-  // 管理篩選狀態
+function FilterSidebar({ onFilterChange }) {
+  // 狀態管理
   const [selectedSort, setSelectedSort] = useState('relevance');
   const [checkedFreeShipping, setCheckedFreeShipping] = useState(false);
   const [checkedDiscount, setCheckedDiscount] = useState(false);
@@ -16,27 +16,39 @@ function FilterSidebar() {
     combo: false,
   });
 
-  // 追蹤篩選狀態變化
+  // 判斷篩選條件是否更改過
   const [isFilterChanged, setIsFilterChanged] = useState(false);
 
-  // 當篩選條件改變時，更新 isFilterChanged 狀態
+  // 當篩選條件改變時更新父組件
   useEffect(() => {
+    const filterCriteria = {
+      sort: selectedSort,
+      freeShipping: checkedFreeShipping,
+      discount: checkedDiscount,
+      price: selectedPrice, // 包括價格篩選
+      cuisines: Object.keys(checkedCuisines).filter((cuisine) => checkedCuisines[cuisine]),
+    };
+  
+    // 傳遞更新後的篩選條件給父組件
+    onFilterChange(filterCriteria);
+    
+    // 檢查是否有篩選條件改變
     const isChanged =
       selectedSort !== 'relevance' ||
       checkedFreeShipping ||
       checkedDiscount ||
       selectedPrice ||
       Object.values(checkedCuisines).includes(true);
-
+  
     setIsFilterChanged(isChanged);
-  }, [selectedSort, checkedFreeShipping, checkedDiscount, selectedPrice, checkedCuisines]);
+  }, [selectedSort, checkedFreeShipping, checkedDiscount, selectedPrice, checkedCuisines, onFilterChange]);
 
-  // 當點擊「清除所有」時，重置所有篩選選項
+  // 清除所有篩選條件
   const handleClearAll = () => {
-    setSelectedSort('relevance'); // 重置排序
-    setCheckedFreeShipping(false); // 重置免外送服務費
-    setCheckedDiscount(false); // 重置折扣
-    setSelectedPrice(null); // 重置價格篩選
+    setSelectedSort('relevance');
+    setCheckedFreeShipping(false);
+    setCheckedDiscount(false);
+    setSelectedPrice(null);
     setCheckedCuisines({
       sandwich: false,
       chinese: false,
@@ -44,15 +56,15 @@ function FilterSidebar() {
       bento: false,
       healthy: false,
       combo: false,
-    }); // 重置菜式篩選
+    });
   };
 
-  // 價格篩選按鈕的點擊處理
+  // 價錢篩選按鈕的點擊處理
   const handlePriceClick = (price) => {
     setSelectedPrice(price);
   };
 
-  // 菜式選擇框的點擊處理
+  // 菜式篩選按鈕的點擊處理
   const handleCuisineChange = (cuisine) => {
     setCheckedCuisines((prev) => ({
       ...prev,
@@ -62,7 +74,7 @@ function FilterSidebar() {
 
   return (
     <div className="filter-sidebar">
-      {/* 只有在篩選有變更時顯示清除所有按鈕 */}
+      {/* 顯示「清除所有」按鈕 */}
       {isFilterChanged && (
         <div className="clear-all">
           <button onClick={handleClearAll}>清除所有</button>
@@ -70,7 +82,7 @@ function FilterSidebar() {
       )}
 
       <h1>篩選</h1>
-      
+
       {/* 排序依 */}
       <div className="filter-section">
         <h3>排序依</h3>
@@ -137,7 +149,7 @@ function FilterSidebar() {
             checked={checkedCuisines.sandwich}
             onChange={() => handleCuisineChange('sandwich')}
           />
-          三明治 / 吐司
+          漢堡
         </label>
         <label>
           <input
@@ -153,7 +165,7 @@ function FilterSidebar() {
             checked={checkedCuisines.riceBowl}
             onChange={() => handleCuisineChange('riceBowl')}
           />
-          丼飯 / 蓋飯
+          麵食
         </label>
         <label>
           <input
@@ -161,7 +173,7 @@ function FilterSidebar() {
             checked={checkedCuisines.bento}
             onChange={() => handleCuisineChange('bento')}
           />
-          便當
+          東南亞
         </label>
         <label>
           <input
@@ -177,7 +189,7 @@ function FilterSidebar() {
             checked={checkedCuisines.combo}
             onChange={() => handleCuisineChange('combo')}
           />
-          合式
+          日式
         </label>
       </div>
 

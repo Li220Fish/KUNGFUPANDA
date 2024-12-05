@@ -16,7 +16,7 @@ const RestaurantCard = ({ name, image, rating, deliveryTime, tags }) => {
       <div className="restaurant-info">
         <div className="info-header">
           <h3 className="restaurant-name">{name}</h3>
-          <span className="restaurant-rating">⭐ {rating}</span>
+          <span className="restaurant-rating">{rating}</span>
         </div>
         <div className="restaurant-tags">
           {tags.map((tag, index) => (

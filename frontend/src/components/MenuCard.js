@@ -1,7 +1,7 @@
 import React from "react";
 import "./MenuCard.css";
 
-const MenuCard = ({ name, image, price, tagline, onAddToCart }) => {
+const MenuCard = ({id, name, image, price, tagline, onAddToCart }) => {
   return (
     <div className="menu-card">
       {/* 資訊區域 */}
@@ -21,7 +21,7 @@ const MenuCard = ({ name, image, price, tagline, onAddToCart }) => {
         {/* 加號按鈕 */}
         <div
           className="plus-icon"
-          onClick={() => onAddToCart({ name, image, price, tagline })}
+          onClick={() => onAddToCart({ id,name, image, price, tagline })}
         >
           +
         </div>
@@ -31,3 +31,4 @@ const MenuCard = ({ name, image, price, tagline, onAddToCart }) => {
 };
 
 export default MenuCard;
+

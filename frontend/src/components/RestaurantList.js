@@ -1,80 +1,67 @@
 import React, { useState, useEffect } from "react";
 import RestaurantCard from "./RestaurantCard";
-import "./RestaurantCard.css"; // 樣式文件
-import immage from '../assets/7.JPG';
-const RestaurantList = () => {
-  // 初始化假資料
-  const [restaurants, setRestaurants] = useState([
-    {
-      id: 1,
-      name: "餐廳 A",
-      image: immage, // Placeholder 圖片
-      rating: 4.5,
-      deliveryTime: "20-30 分鐘",
-      tags: ["$．健康餐"],
-    },
-    {
-      id: 2,
-      name: "餐廳 B",
-      image: "https://via.placeholder.com/280x160",
-      rating: 4.3,
-      deliveryTime: "25-35 分鐘",
-      tags: ["$．快餐"],
-    },
-    {
-      id: 3,
-      name: "餐廳 C",
-      image: "https://via.placeholder.com/280x160",
-      rating: 4.7,
-      deliveryTime: "15-25 分鐘",
-      tags: ["$．飲料"],
-    },
-    {
-        id: 4,
-        name: "餐廳 D",
-        image: "https://via.placeholder.com/280x160",
-        rating: 4.1,
-        deliveryTime: "15-25 分鐘",
-        tags: ["$$．快炒"],
-      },
-    {
-        id: 5,
-        name: "餐廳 E",
-        image: "https://via.placeholder.com/280x160",
-        rating: 4.1,
-        deliveryTime: "5-20 分鐘",
-        tags: ["$．消夜"],
-      },
-  ]);
+import "./RestaurantCard.css";
+
+const RestaurantList = ({ filterCriteria }) => {
+  const [restaurants, setRestaurants] = useState([]);
   const [loading, setLoading] = useState(true);
+
+  // 将筛选条件转为查询字符串
+  const buildQueryString = (criteria) => {
+    const queryParams = new URLSearchParams();
+    for (const key in criteria) {
+      if (Array.isArray(criteria[key])) {
+        criteria[key].forEach((value) => queryParams.append(key, value));
+      } else if (criteria[key] !== null && criteria[key] !== undefined) {
+        queryParams.append(key, criteria[key]);
+      }
+    }
+    return queryParams.toString();
+  };
 
   useEffect(() => {
     const fetchRestaurants = async () => {
       try {
-        const response = await fetch("http://127.0.0.1:5000/api/restaurants");
+        setLoading(true); // 设置加载状态
+        const queryString = buildQueryString(filterCriteria); // 构建查询参数
+        const response = await fetch(
+          `http://127.0.0.1:5000/api/restaurants?${queryString}`,
+          {
+            method: "GET", // 改为 GET 请求
+          }
+        );
+
+        if (!response.ok) {
+          throw new Error("Failed to fetch restaurants");
+        }
+
         const data = await response.json();
-        setRestaurants(data); // 替換為後端資料
+        setRestaurants(data);
       } catch (error) {
         console.error("Error fetching restaurants:", error);
       } finally {
         setLoading(false);
       }
     };
-    fetchRestaurants()
-  }, []);
+
+    fetchRestaurants();
+  }, [filterCriteria]); // 依赖 filterCriteria，变化时触发
 
   return (
     <div className="restaurant-list">
-      {restaurants.map((restaurant) => (
-        <RestaurantCard
-          key={restaurant.id}
-          name={restaurant.name}
-          image={restaurant.image}
-          rating={restaurant.rating}
-          deliveryTime={restaurant.deliveryTime}
-          tags={restaurant.tags}
-        />
-      ))}
+      {loading ? (
+        <p>Loading...</p>
+      ) : (
+        restaurants.map((restaurant) => (
+          <RestaurantCard
+            key={restaurant.id}
+            name={restaurant.name}
+            image={restaurant.image}
+            deliveryTime={restaurant.deliveryTime}
+            tags={restaurant.tags}
+          />
+        ))
+      )}
     </div>
   );
 };

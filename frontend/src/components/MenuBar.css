@@ -2,14 +2,15 @@
 .menu-bar {
   display: flex;
   align-items: center;
-  justify-content: flex-start; /* 確保內容靠左對齊 */
+  justify-content: space-between; /* 確保內容靠左對齊 */
   background-color: #ffffff;
   padding: 10px 0; /* 僅保留上下內邊距 */
-  border-bottom: 2px solid #e0e0e0; /* 下邊框 */
+  border-bottom: 1px solid #e0e0e0; /* 下邊框 */
   position: sticky; /* 固定在頁面上方 */
-  top: 60px; /* 根據 Navbar 高度調整 */
+  top: 69px; /* 根據 Navbar 高度調整 */
+  margin-top: 0px; /* 調整為適合的偏移量 */
   left: 0; /* 確保容器貼齊最左邊 */
-  z-index: 100; /* 確保位於其他內容之上 */
+  z-index: 3; /* 確保位於其他內容之上 */
   width: 100%; /* 填滿頁面寬度 */
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* 添加陰影 */
 }
@@ -20,7 +21,7 @@
   align-items: center; /* 圖標與文字垂直對齊 */
   cursor: pointer;
   margin-right: 10px; /* 控制每個項目之間的水平間距 */
-  padding: 5px 10px; /* 內邊距，讓點擊區域稍大一些 */
+  padding: 5px 40px; /* 內邊距，讓點擊區域稍大一些 */
   transition: color 0.3s, border-bottom 0.3s; /* 增加交互效果 */
   border-radius: 0; /* 去除圓角 */
   font-size: 14px; /* 與搜索框字體一致 */
@@ -48,12 +49,15 @@
 }
 
 /* 搜索框樣式 */
-.search-cuisine {
+.search-cuisine2 {
   margin-left: 150px; /* 與搜索框對齊 */
-  width: 20%;
+  border-radius: 30px !important; /* 確保圓角樣式生效 */
+  width: 30% !important;
   padding: 8px;
   margin-bottom: 10px;
   border: 1px solid #ccc;
-  border-radius: 15px;
   font-size: 14px;
+  outline: none; /* 去掉點擊時的邊框 */
 }
+
+

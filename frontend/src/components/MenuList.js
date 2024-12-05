@@ -5,6 +5,7 @@ const MenuList = ({ menuItems, addItemToCart }) => (
   <div className="menu-list">
     {menuItems.map((item, index) => (
       <MenuCard
+        id={item.id}
         key={index}
         name={item.name}
         image={item.image}
@@ -17,3 +18,4 @@ const MenuList = ({ menuItems, addItemToCart }) => (
 );
 
 export default MenuList;
+ 

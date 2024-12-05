@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import './cashbar.css'; // 對應的樣式文件
 import emptyCartImage from '../assets/illu_cart_empty.svg';
+import white from '../assets/white.png'
 
 const CashBar = ({ items, removeItem, onDeliveryClick, onPickupClick, updateItemQuantity }) => {
   // 計算總金額
@@ -22,6 +24,13 @@ const CashBar = ({ items, removeItem, onDeliveryClick, onPickupClick, updateItem
       updateItemQuantity(itemId, operation); // 增加或減少數量
     }
   };
+
+  const [isRotated, setIsRotated] = useState(false);
+
+  const handleToggleClick = () => {
+    setIsRotated((prev) => !prev);
+  };
+
 
   return (
     <div className="cashbar-container">
@@ -55,6 +64,7 @@ const CashBar = ({ items, removeItem, onDeliveryClick, onPickupClick, updateItem
           </div>
         ) : (
           <div className="cart-items-list">
+
             {/* 顯示購物車中所有餐點 */}
             {items.map((item) => (
               <div key={item.id} className="cart-item">
@@ -86,7 +96,42 @@ const CashBar = ({ items, removeItem, onDeliveryClick, onPickupClick, updateItem
                   <button className="outer-button"></button>
                 </div>
               </div>
+
             ))}
+            <div className="small-total">
+              <p className="left-text">小計</p>
+              <p className="right-text">${totalPrice}</p>
+            </div>
+            {totalPrice !== 0 && activeButton === 'delivery' ? (
+              <div className="dede">
+                <p className="dev">外送費</p>
+                <p
+                  className={`pri ${totalPrice > 149 ? "crossed-out" : ""}`}
+                >
+                  $60
+                </p>
+              </div>
+            ) : (<></>
+            )}
+            <div className="divider"></div>
+            <div className="tableware">
+              <svg aria-hidden="true" focusable="false" class="fl-none" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" color="neutral-primary"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.13514 3C9.35174 3 11.161 4.74406 11.2655 6.93478L11.2703 7.13514V9.08108C11.2703 10.5608 10.493 11.8591 9.32448 12.5897L9.32432 18.8108C9.32432 20.0199 8.34419 21 7.13514 21C5.97646 21 5.02802 20.0998 4.951 18.9607L4.94595 18.8108L4.94675 12.5903C3.83922 11.8982 3.08295 10.6964 3.00641 9.31322L3 9.08108V7.13514C3 4.85136 4.85136 3 7.13514 3ZM14.1892 4.45946V8.44865C14.1892 8.66359 14.3634 8.83784 14.5784 8.83784H15.7459C15.9609 8.83784 16.1351 8.66359 16.1351 8.44865V4.45946C16.1351 4.05644 16.4618 3.72973 16.8649 3.72973C17.2679 3.72973 17.5946 4.05644 17.5946 4.45946V8.44865C17.5946 8.66359 17.7688 8.83784 17.9838 8.83784H19.1514C19.3663 8.83784 19.5405 8.66359 19.5405 8.44865V4.45946C19.5405 4.05644 19.8673 3.72973 20.2703 3.72973C20.6733 3.72973 21 4.05644 21 4.45946V9.08108C21 10.5608 20.2227 11.8591 19.0542 12.5897L19.0541 18.8108C19.0541 20.0199 18.0739 21 16.8649 21C15.7062 21 14.7578 20.0998 14.6807 18.9607L14.6757 18.8108L14.6765 12.5903C13.5605 11.8929 12.8011 10.6779 12.7345 9.28143L12.7297 9.08108V4.45946C12.7297 4.05644 13.0564 3.72973 13.4595 3.72973C13.8625 3.72973 14.1892 4.05644 14.1892 4.45946ZM7.44244 13.2001C7.32068 13.2109 7.21824 13.2162 7.13514 13.2162C7.05225 13.2162 6.95011 13.2109 6.8287 13.2002C6.61456 13.1813 6.4257 13.3397 6.40688 13.5538C6.40589 13.5652 6.40539 13.5765 6.40539 13.5879L6.40541 18.8108C6.40541 19.2138 6.73212 19.5405 7.13514 19.5405C7.50457 19.5405 7.80988 19.266 7.8582 18.9098L7.86486 18.8108L7.86578 13.5879C7.86581 13.3729 7.6916 13.1987 7.47665 13.1986C7.46523 13.1986 7.45382 13.1991 7.44244 13.2001ZM17.2054 13.2162H16.5243C16.3094 13.2162 16.1351 13.3905 16.1351 13.6054V18.8108C16.1351 19.1467 16.362 19.4295 16.6709 19.5145L16.7658 19.5339L16.8649 19.5405C17.2343 19.5405 17.5396 19.266 17.5879 18.9098L17.5946 18.8108V13.6054C17.5946 13.3905 17.4203 13.2162 17.2054 13.2162ZM7.13514 4.45946C5.71213 4.45946 4.54858 5.57031 4.46434 6.97214L4.45946 7.13514V9.08108C4.45946 10.5588 5.6574 11.7568 7.13514 11.7568C8.55814 11.7568 9.72169 10.6459 9.80593 9.24408L9.81081 9.08108V7.13514C9.81081 5.6574 8.61287 4.45946 7.13514 4.45946ZM14.7944 10.776C15.2851 11.3747 16.0304 11.7568 16.8649 11.7568C17.7256 11.7568 18.4914 11.3503 18.9809 10.7189C19.0691 10.6051 19.0483 10.4414 18.9346 10.3532C18.8889 10.3178 18.8327 10.2986 18.7749 10.2985L15.0206 10.2981C14.8591 10.2981 14.7281 10.429 14.7281 10.5906C14.7281 10.6582 14.7515 10.7237 14.7944 10.776Z"></path></svg>
+              <div className="word">
+                <p className="word1">請問你需要免洗餐具、吸管嗎?</p>
+                <p className="word2">
+                  {isRotated
+                    ? "如有提供，你的餐點會附上餐具"
+                    : "不提供餐具，謝謝你幫忙減少不必要的浪費"}
+                </p>
+              </div>
+              <button className="image-button" onClick={handleToggleClick}>
+                <img
+                  src={white}
+                  alt="icon"
+                  className={`button-icon ${isRotated ? "rotate-right" : "rotate-left"}`}
+                />
+              </button>
+            </div>
           </div>
         )}
       </div>
@@ -134,11 +179,11 @@ const CashBar = ({ items, removeItem, onDeliveryClick, onPickupClick, updateItem
                 className="fl-success"
                 width="24"
                 height="24"
-                fill = "green"
+                fill="green"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
                 data-testid="basket-size-deal-progress-icon"
-                style={{ width: '24px', height: '24px' }} 
+                style={{ width: '24px', height: '24px' }}
               >
                 <path
                   fillRule="evenodd"
@@ -160,45 +205,35 @@ const CashBar = ({ items, removeItem, onDeliveryClick, onPickupClick, updateItem
             </div>
           )
         ) : (
-          <div className="order-offer">
-            <svg
-              aria-hidden="true"
-              focusable="false"
-              className="fl-interaction-primary"
-              fill="#ff2b85"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                fillRule="evenodd"
-                clipRule="evenodd"
-                d="M14.2419 2.94497C13.0129 1.68501 10.9872 1.68501 9.75809 2.94497L9.67803 3.02705C9.0886 3.63129 8.28022 3.97202 7.4361 3.97202H7.10397C5.37424 3.97202 3.97202 5.37424 3.97202 7.10396V7.4361C3.97202 8.28021 3.63129 9.08859 3.02705 9.67802L2.94497 9.75808C1.68501 10.9872 1.68501 13.0129 2.94497 14.2419L3.02705 14.322C3.63129 14.9114 3.97202 15.7198 3.97202 16.5639V16.8961C3.97202 18.6258 5.37424 20.028 7.10397 20.028H7.4361C8.28022 20.028 9.08859 20.3687 9.67802 20.973L9.75809 21.055C10.9872 22.315 13.0129 22.315 14.2419 21.055L14.322 20.973C14.9114 20.3687 15.7198 20.028 16.5639 20.028H16.8961C18.6258 20.028 20.028 18.6258 20.028 16.8961V16.5639C20.028 15.7198 20.3687 14.9114 20.973 14.322L21.0551 14.2419C22.315 13.0129 22.315 10.9872 21.0551 9.75808L20.973 9.67802C20.3687 9.08859 20.028 8.28021 20.028 7.43609V7.10396C20.028 5.37424 18.6258 3.97202 16.8961 3.97202H16.5639C15.7198 3.97202 14.9114 3.63129 14.322 3.02705L14.2419 2.94497ZM15.5356 8.46491C15.2102 8.13947 14.6826 8.13947 14.3571 8.46491L8.46457 14.3575C8.13913 14.6829 8.13913 15.2105 8.46457 15.536C8.79001 15.8614 9.31764 15.8614 9.64308 15.536L15.5356 9.64342C15.8611 9.31799 15.8611 8.79035 15.5356 8.46491ZM10.5 9C10.5 9.82843 9.82844 10.5 9.00001 10.5C8.17158 10.5 7.50001 9.82843 7.50001 9C7.50001 8.17158 8.17158 7.5 9.00001 7.5C9.82844 7.5 10.5 8.17158 10.5 9ZM15 16.5C15.8284 16.5 16.5 15.8284 16.5 15C16.5 14.1716 15.8284 13.5 15 13.5C14.1716 13.5 13.5 14.1716 13.5 15C13.5 15.8284 14.1716 16.5 15 16.5Z"
-              ></path>
-            </svg>
-            <p>
-              $ 149 以上訂單<strong> 免費外送</strong> ，趕緊點起來！
-            </p>
-          </div>
+          <></>
         )}
 
         {/* 購物車總計 */}
         <div className="total-section">
           <span className="total-label">總計：</span>
-          <span className="total-price">${totalPrice}</span>
+          {activeButton === 'delivery' ? (
+            totalPrice > 149 ? (
+              <span className="total-price">${totalPrice}</span>
+            ) : (
+              <span className="total-price">${totalPrice + 60}</span>
+            )
+          ) : (
+            <span className="total-price">${totalPrice}</span>
+          )}
         </div>
 
-        {/* 查看明細按鈕 */}
-        <button className="check-credit">查看明細</button>
+
 
         {/* 查看付款方式按鈕 */}
-        <button className="checkout-btn" disabled={totalPrice === 0}>
-          查看付款方式及地址
-        </button>
+        <Link to="/checkoutpage" style={{ textDecoration: 'none' }}>
+          <button className="checkout-btn" disabled={totalPrice === 0}>
+            查看付款方式及地址
+          </button>
+        </Link>
       </div>
     </div>
   );
+
 };
 
 export default CashBar;

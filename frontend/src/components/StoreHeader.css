@@ -4,7 +4,7 @@
     background-color: #fff;
     position: relative;
     left: 0;
-    top: 60px;
+    top: 45px;
     width: 100%; /* 填滿頁面寬度 */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* 添加陰影 */
     display: flex;

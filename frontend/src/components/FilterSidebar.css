@@ -4,7 +4,7 @@
     top: 150px;
     left: calc(((100vw - 1300px) / 200) * 250px);
     transition: left 0.3s ease-in-out;
-    width: 250px; /* 側邊欄的寬度 */
+    width: 270px; /* 側邊欄的寬度 */
     max-width: 80%;
     height: calc(100vh - 150px);
     background-color: #ffffff;
