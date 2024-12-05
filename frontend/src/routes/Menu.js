@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-
+import { useLocation } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import StoreHeader from "../components/StoreHeader";
 import MenuBar from "../components/MenuBar";
@@ -9,7 +9,9 @@ import sevenImage from "../assets/7.JPG"; // 注意路徑
 import './Meals.css'; // 確保樣式正確
 
 function Menu() {
-
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  const restaurantName = searchParams.get("name"); // 獲取 ?name 的值
   const [storeData, setStore] = useState({
     location: "台北市",
     logoUrl: "https://images.deliveryhero.io/image/fd-tw/LH/x6hj-listing.jpg?width=200&height=200", // 替換為真實圖片 URL
@@ -44,10 +46,19 @@ function Menu() {
   useEffect(() => {
     const fetchStore = async () => {
       try {
-        const restaurantName = "甘蔗の椰殼"; // 替換為你需要傳遞的餐廳名稱
-        const response = await fetch(`http://127.0.0.1:5000/menu?name=${encodeURIComponent(restaurantName)}`, {
-          method: "GET",
-        });
+  
+        if (!restaurantName) {
+          console.error("Restaurant name not found in query params!");
+          return;
+        }
+  
+        // 2. 將 restaurantName 傳遞到 API 請求中
+        const response = await fetch(
+          `http://127.0.0.1:5000/menu?name=${encodeURIComponent(restaurantName)}`,
+          {
+            method: "GET",
+          }
+        );
 
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
@@ -156,7 +167,7 @@ function Menu() {
         }))}
         addItemToCart={addItemToCart} // 传递 addItemToCart
       />
-      <div className="cashbar-container">
+      <div className="cashbar-con">
         <CashBar
           items={cartItems}
           totalPrice={totalPrice}
@@ -167,7 +178,7 @@ function Menu() {
           decreaseQuantity={decreaseItemQuantity}
           updateItemQuantity={updateItemQuantity}
         />
-      </div>
+      </div> 
     </>
   );
 };

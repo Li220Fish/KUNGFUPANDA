@@ -23,7 +23,6 @@ function Home() {
         btnClass="show"
       />
       <StoreJoin />
-      <Delivery />
       <City />
       <Footer />
     </>

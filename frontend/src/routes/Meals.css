@@ -47,10 +47,10 @@
   flex: 3; /* 主內容占較大比例 */
 }
 
-.cashbar-container {
-  position: sticky;
-  top: 100px; /* 距離頁面頂部的距離 */
-  align-self: flex-start;
+.cashbar-con {
+  position: absolute;
+  left: 1100px;
+  top: 415px;
 }
 
 .menu-item-image {
