@@ -68,7 +68,7 @@
     }
   
     hr {
-      width: 80%;    /* 設定水平線的寬度為 80% */
+      width: 400px;    /* 設定水平線的寬度為 80% */
       height: 2px;   /* 設定水平線的高度 */
       border: none;  /* 移除默認的邊框 */
       background-color: #ccccccb4; /* 設定顏色 */
@@ -302,3 +302,54 @@
         .delete-button:hover {
             background-color: #e21b71dc; /* 懸停時背景顏色變化 */
           }
+        .Popular-restaurant-container{
+          position: absolute; /* 絕對定位父容器 */
+          top: 1700px; /* 設定整體位置，您可以根據需要調整 */
+          left: 50%; /* 水平居中 */
+          transform: translateX(-50%); /* 精確居中 */
+        }
+        .Popular-restaurant-container {
+          margin-top: 20px;
+          padding: 15px;
+          border-top: 1px solid #ccc;
+        }
+        
+        .Popular-restaurant-container h4 {
+          font-size: 18px;
+          font-weight: bold;
+          color: #333;
+          margin-bottom: 10px;
+        }
+        
+        .Popular-restaurant-container p {
+          font-size: 14px;
+          line-height: 2;
+          color: #555;
+          display: flex;
+          flex-wrap: wrap;
+        }
+        
+        .Popular-restaurant-container a {
+          text-decoration: none;
+          color: #4a4a4b;
+          font-weight: 500;
+          transition: color 0.3s;
+        }
+        
+        .Popular-restaurant-container a:hover {
+          color: #161616;
+        }
+        
+        .Popular-restaurant-container a:not(:last-child)::after {
+          content: " | ";
+          margin: 0 8px;
+          color: #cfcccc;
+        }
+        
+
+        .Popular-food-container{
+          position: absolute; /* 絕對定位父容器 */
+          top: 1850px; /* 設定整體位置，您可以根據需要調整 */
+          left: 50%; /* 水平居中 */
+          transform: translateX(-50%); /* 精確居中 */
+        }

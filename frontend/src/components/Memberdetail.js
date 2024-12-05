@@ -108,6 +108,38 @@ const Memberdetail = () => {
           刪除帳號
         </button>
         </div>
+        <div className="Popular-restaurant-container">
+        <h4>
+          <strong>熱門餐廳</strong>
+        </h4>
+        <p>
+          <a className="bds-c-link bds-c-link--color-secondary" href="http://localhost:3000/Restaurant">八方雲集</a>
+          <a className="bds-c-link bds-c-link--color-secondary" href="http://localhost:3000/Restaurant">麥味登</a>
+          <a className="bds-c-link bds-c-link--color-secondary" href="http://localhost:3000/Restaurant">路易莎咖啡</a>
+          <a className="bds-c-link bds-c-link--color-secondary" href="http://localhost:3000/Restaurant">McDonald's 麥當勞</a>
+          <a className="bds-c-link bds-c-link--color-secondary" href="http://localhost:3000/Restaurant">春水堂</a>
+          <a className="bds-c-link bds-c-link--color-secondary" href="http://localhost:3000/Restaurant">拉亞漢堡</a>
+        </p>
+      </div>
+      
+        <div className="Popular-food-container">
+        <h4>
+          <strong>熱門料理</strong>
+        </h4>
+        <p>
+          <a className="bds-c-link bds-c-link--color-secondary" href="http://localhost:3000/Restaurant">八方雲集</a>
+          &nbsp; | &nbsp;
+          <a className="bds-c-link bds-c-link--color-secondary" href="http://localhost:3000/Restaurant">麥味登</a>
+          &nbsp; | &nbsp;
+          <a className="bds-c-link bds-c-link--color-secondary" href="http://localhost:3000/Restaurant">路易莎咖啡</a>
+          &nbsp; | &nbsp;
+          <a className="bds-c-link bds-c-link--color-secondary" href="http://localhost:3000/Restaurant">McDonald's 麥當勞</a>
+          &nbsp; | &nbsp;
+          <a className="bds-c-link bds-c-link--color-secondary" href="http://localhost:3000/Restaurant">春水堂</a>
+          &nbsp; | &nbsp;
+          <a className="bds-c-link bds-c-link--color-secondary" href="http://localhost:3000/Restaurant">拉亞漢堡</a>
+        </p>
+      </div>
   </div>
 );
 }
